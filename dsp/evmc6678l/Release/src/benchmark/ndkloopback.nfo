@@ -1,0 +1,281 @@
+TMS320C6x C/C++ Optimizer               v7.4.0
+Build Number 1MGRS-0QTSRVUW-UARAR-SAW-ZAZG_X_U_Q
+
+		======File-level Analysis Summary======
+
+
+static void TCP_perform_receive() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	TaskDestroy() (1 times)
+	fdCloseSession() (1 times)
+	xdc_runtime_Memory_free__E() (1 times)
+	nimu_getrxdrops() (1 times)
+	fdClose() (5 times)
+	fdError() (8 times)
+	send() (1 times)
+	recv() (1 times)
+	connect() (1 times)
+	TaskSleep() (3 times)
+	inet_addr() (2 times)
+	LLIAddStaticEntry() (1 times)
+	accept() (1 times)
+	listen() (1 times)
+	bind() (1 times)
+	mmZeroInit() (3 times)
+	socket() (2 times)
+	TaskSelf() (3 times)
+	fdOpenSession() (1 times)
+	platform_write() (23 times)
+	xdc_runtime_Memory_alloc__E() (1 times)
+
+static void UDP_perform_receive() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	TaskDestroy() (1 times)
+	fdCloseSession() (1 times)
+	TaskSleep() (1 times)
+	LLIRemoveStaticEntry() (1 times)
+	nimu_getrxdrops() (1 times)
+	fdClose() (3 times)
+	fdError() (2 times)
+	sendto() (1 times)
+	recvncfree() (1 times)
+	memcpy() (1 times)
+	recvncfrom() (1 times)
+	LLIAddStaticEntry() (1 times)
+	inet_addr() (3 times)
+	memset() (1 times)
+	bind() (1 times)
+	mmZeroInit() (1 times)
+	socket() (1 times)
+	TaskSelf() (3 times)
+	fdOpenSession() (1 times)
+	platform_write() (14 times)
+
+static void copyTCPTestee_NetworkOpen() is called from 1 sites in this file.
+    It appears to be inlineable (size = 12 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	TaskCreate() (1 times)
+
+static void copyUDPTestee_NetworkOpen() is called from 1 sites in this file.
+    It appears to be inlineable (size = 12 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	TaskCreate() (1 times)
+
+extern int ndkLoopbackStart() is called from 0 sites in this file.
+    It appears to be inlineable (size = 435 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	copyTCPTestee_NetworkOpen() (1 times)
+	copyUDPTestee_NetworkOpen() (1 times)
+	html_getpage() (1 times)
+	httpSendClientStr() (1 times)
+	html_getsize() (1 times)
+	httpSendEntityLength() (1 times)
+	httpSendStatusLine() (1 times)
+	html_end() (1 times)
+	platform_write() (7 times)
+	memset() (1 times)
+	strcpy() (1 times)
+	strcmp() (2 times)
+	atoi() (8 times)
+	strlen() (5 times)
+	html_var() (3 times)
+	html() (24 times)
+	html_start() (1 times)
+	html_getValueFor() (11 times)
+	NtIPN2Str() (1 times)
+	getsockname() (1 times)
+	html_processPost() (1 times)
+
+extern int ndkLoopbackStop() is called from 0 sites in this file.
+    It appears to be inlineable (size = 68 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	fdClose() (3 times)
+	platform_write() (1 times)
+	html_getpage() (1 times)
+	httpSendClientStr() (1 times)
+	html_getsize() (1 times)
+	httpSendEntityLength() (1 times)
+	httpSendStatusLine() (1 times)
+	html_end() (1 times)
+	html_var() (1 times)
+	html() (5 times)
+	html_start() (1 times)
+	html_processPost() (1 times)
+
+static int strcmp() is called from 2 sites in this file.
+    It appears to be inlineable (size = 23 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+static char *strcpy() is called from 1 sites in this file.
+    It appears to be inlineable (size = 23 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+static unsigned strlen() is called from 5 sites in this file.
+    It appears to be inlineable (size = 15 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+Variable has no explicitly assigned value:
+	extern char *PAGEFOOTER
+
+Variable has no explicitly assigned value:
+	extern char *PAGEWRAPPER
+
+Variable has no explicitly assigned value:
+	extern char *PAGEHEAD
+
+Variable has no explicitly assigned value:
+	extern char *CONTENT_TYPE_HTML
+
+Address of global variable is never taken:
+	static void *lbtcpSocket
+	static void *stcp
+	static void *sudp
+	static unsigned char fstatic
+	static int txloopback_port
+	static int rxloopback_port
+	static int loopback_protocol
+	static unsigned char ndk_loopback_test
+
+
+
+These functions may be recursive:
+	TCP_perform_receive()
+	UDP_perform_receive()
+	ndkLoopbackStart()
+	copyTCPTestee_NetworkOpen()
+	copyUDPTestee_NetworkOpen()
+	ndkLoopbackStop()
+Inlineable function will be suppressed: strcpy()
+Inlineable function will be suppressed: strlen()
+Inlineable function will be suppressed: strcmp()
+
+These external functions are called but not defined here:
+	atoi()
+	memset()
+	memcpy()
+	html_processPost()
+	getsockname()
+	NtIPN2Str()
+	html_getValueFor()
+	html_start()
+	html()
+	html_var()
+	html_end()
+	httpSendStatusLine()
+	httpSendEntityLength()
+	html_getsize()
+	httpSendClientStr()
+	html_getpage()
+	TaskCreate()
+	recvncfrom()
+	recvncfree()
+	sendto()
+	LLIRemoveStaticEntry()
+	xdc_runtime_Memory_alloc__E()
+	platform_write()
+	fdOpenSession()
+	TaskSelf()
+	socket()
+	mmZeroInit()
+	bind()
+	listen()
+	accept()
+	LLIAddStaticEntry()
+	inet_addr()
+	TaskSleep()
+	connect()
+	recv()
+	send()
+	fdError()
+	fdClose()
+	nimu_getrxdrops()
+	xdc_runtime_Memory_free__E()
+	fdCloseSession()
+	TaskDestroy()
+
+
+		======= End file-level Analysis =======
+
+
+==============================================================================
+
+extern int ndkLoopbackStop() is called from 0 sites in this file.
+    It appears to be inlineable (size = 68 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 9 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+static void copyUDPTestee_NetworkOpen() is called from 1 sites in this file.
+    It appears to be inlineable (size = 12 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 1 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+static void copyTCPTestee_NetworkOpen() is called from 1 sites in this file.
+    It appears to be inlineable (size = 12 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 1 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+extern int ndkLoopbackStart() is called from 0 sites in this file.
+    It appears to be inlineable (size = 435 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strlen() (5 times)
+	strcmp() (2 times)
+	strcpy() (1 times)
+	copyUDPTestee_NetworkOpen() (1 times)
+	copyTCPTestee_NetworkOpen() (1 times)
+
+There are 68 memory accesses with 180 dependences.
+
+
+==============================================================================
+
+static void UDP_perform_receive() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 24 memory accesses with 15 dependences.
+
+
+==============================================================================
+
+static void TCP_perform_receive() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 28 memory accesses with 40 dependences.
+
+<<NULL MIX DOMAIN>>
+
+== END OF INFO OUTPUT==

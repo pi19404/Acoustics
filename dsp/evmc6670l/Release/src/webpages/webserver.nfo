@@ -1,0 +1,631 @@
+TMS320C6x C/C++ Optimizer               v7.4.0
+Build Number 1MGRS-0QTSRVUW-UARAR-SAW-ZAZG_X_U_Q
+
+		======File-level Analysis Summary======
+
+
+static char *getformfield() is called from 2 sites in this file.
+    It appears to be inlineable (size = 29 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strchr() (1 times)
+	memcpy() (1 times)
+	strlen() (1 times)
+	strcpy() (1 times)
+	strncpy() (1 times)
+	strstr() (2 times)
+
+extern void html() is called from 2 sites in this file.
+    It appears to be inlineable (size = 26 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	platform_write() (1 times)
+	memcpy() (1 times)
+	strlen() (1 times)
+
+extern void html_end() is called from 0 sites in this file.
+    It appears to be inlineable (size = 22 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	platform_write() (1 times)
+	memcpy() (1 times)
+	strlen() (1 times)
+
+extern unsigned html_getNumberPostVars() is called from 0 sites in this file.
+    It appears to be inlineable (size = 2 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+extern char *html_getValueFor() is called from 0 sites in this file.
+    It appears to be inlineable (size = 33 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strcmp() (1 times)
+
+extern char *html_getpage() is called from 0 sites in this file.
+    It appears to be inlineable (size = 3 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+extern unsigned html_getsize() is called from 0 sites in this file.
+    It appears to be inlineable (size = 2 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+extern int html_processFileUpload() is called from 0 sites in this file.
+    It appears to be inlineable (size = 47 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	multipartParser() (1 times)
+	recv() (1 times)
+	platform_write() (3 times)
+	memset() (1 times)
+
+extern int html_processPost() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	httpSendErrorResponse() (1 times)
+	platform_write() (4 times)
+	strcpy() (2 times)
+	strlen() (2 times)
+	cgiParseVars() (2 times)
+	xdc_runtime_Memory_free__E() (3 times)
+	recv() (1 times)
+	xdc_runtime_Memory_alloc__E() (1 times)
+	xdc_runtime_Error_init__E() (1 times)
+
+extern void html_start() is called from 0 sites in this file.
+    It appears to be inlineable (size = 15 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	html() (1 times)
+	memset() (1 times)
+
+extern void html_var() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	html() (1 times)
+	vsprintf() (1 times)
+
+static int memcmp() is called from 1 sites in this file.
+    It appears to be inlineable (size = 34 units)
+    It has 4 non-trivial scope blocks nested 4 deep.
+    It calls these functions:
+	<NONE>
+
+static int multipartParser() is called from 1 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	xdc_runtime_Memory_free__E() (4 times)
+	memcmp() (1 times)
+	strlen() (1 times)
+	parseKeyValuePairs() (1 times)
+	strcpy() (3 times)
+	strchr() (1 times)
+	getformfield() (2 times)
+	myreadline() (3 times)
+	platform_write() (4 times)
+	memset() (4 times)
+	xdc_runtime_Memory_alloc__E() (4 times)
+	xdc_runtime_Error_init__E() (1 times)
+
+static int myreadline() is called from 3 sites in this file.
+    It appears to be inlineable (size = 64 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+static int parseKeyValuePairs() is called from 1 sites in this file.
+    It appears to be inlineable (size = 110 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strlen() (1 times)
+
+static char *strchr() is called from 2 sites in this file.
+    It appears to be inlineable (size = 21 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+static int strcmp() is called from 1 sites in this file.
+    It appears to be inlineable (size = 23 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+static char *strcpy() is called from 6 sites in this file.
+    It appears to be inlineable (size = 23 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+static unsigned strlen() is called from 7 sites in this file.
+    It appears to be inlineable (size = 15 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+static char *strncpy() is called from 1 sites in this file.
+    It appears to be inlineable (size = 43 units)
+    It has 4 non-trivial scope blocks nested 4 deep.
+    It calls these functions:
+	<NONE>
+
+Address of global variable is never taken:
+	static unsigned nPostVars
+	static char *htmlbufIndex
+	static unsigned EntityLength
+
+
+
+These functions may be recursive:
+	html_end()
+	html_processFileUpload()
+	multipartParser()
+	html_processPost()
+	html_start()
+	html_var()
+	html()
+
+Results of interprocedural value propagation:
+
+   static char *getformfield() has these parameter attributes:
+      int maxlen :        maxlen%984 == 40;  maxlen <= 1024;  maxlen >= 40;
+
+Function myreadline() will be specialized on these parameters:
+	[2] len == 1024;
+
+Results of interprocedural value propagation:
+
+   static int myreadline() has these parameter attributes:
+      int len :           len == 1024;
+Inlineable function will be suppressed: strcmp()
+Inlineable function will be suppressed: memcmp()
+Inlineable function will be suppressed: strchr()
+Inlineable function will be suppressed: strlen()
+Inlineable function will be suppressed: strncpy()
+Inlineable function will be suppressed: strcpy()
+
+These external functions are called but not defined here:
+	vsprintf()
+	memset()
+	strstr()
+	memcpy()
+	xdc_runtime_Error_init__E()
+	xdc_runtime_Memory_alloc__E()
+	xdc_runtime_Memory_free__E()
+	cgiParseVars()
+	httpSendErrorResponse()
+	recv()
+	platform_write()
+
+
+		======= End file-level Analysis =======
+
+
+==============================================================================
+
+extern void html() is called from 2 sites in this file.
+    It appears to be inlineable (size = 26 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strlen() (1 times)
+
+There are 6 memory accesses with 5 dependences.
+
+
+==============================================================================
+
+extern void html_var() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	html() (1 times)
+
+There are 1 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+extern void html_start() is called from 0 sites in this file.
+    It appears to be inlineable (size = 15 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	html() (1 times)
+
+There are 3 memory accesses with 1 dependences.
+
+
+==============================================================================
+
+extern int html_processPost() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strlen() (2 times)
+	strcpy() (2 times)
+
+There are 16 memory accesses with 99 dependences.
+
+
+==============================================================================
+
+static int myreadline() is called from 3 sites in this file.
+    It appears to be inlineable (size = 64 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+	*** myreadline()'s return value is not needed:return i;
+
+ADVICE: In function myreadline() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the 'while' loop at lines /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c:681-701
+	for the statement if ( bigarr[j] == 13 ) goto g3; else goto g5; at line 684
+	and the statement line[i] = bigarr[j]; at line 696
+
+	Consider specifying option "-mt"
+	or declaring 'bigarr' as unsigned char * const restrict bigarr
+	or declaring 'line' as  char * const restrict line
+	to assert that 'bigarr' in the address of bigarr[j];
+	and            'line' in the address of line[i];
+	do not access the same object in memory.
+
+ADVICE: In function myreadline() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the 'while' loop at lines /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c:681-701
+	for the statement if ( bigarr[j+1] == 10 ) goto g4; else goto g5; at line 684
+	and the statement line[i] = bigarr[j]; at line 696
+
+	Consider specifying option "-mt"
+	or declaring 'bigarr' as unsigned char * const restrict bigarr
+	or declaring 'line' as  char * const restrict line
+	to assert that 'bigarr' in the address of bigarr[j+1];
+	and            'line' in the address of line[i];
+	do not access the same object in memory.
+
+ADVICE: In function myreadline() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the 'while' loop at lines /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c:681-701
+	for the statement line[i] = bigarr[j]; at line 696
+
+	Consider specifying option "-mt"
+	or declaring 'bigarr' as unsigned char * const restrict bigarr
+	or declaring 'line' as  char * const restrict line
+	to assert that 'bigarr' in the address of bigarr[j];
+	and            'line' in the address of line[i];
+	do not access the same object in memory.
+
+There are 7 memory accesses with 10 dependences.
+
+
+==============================================================================
+
+static char *getformfield() is called from 2 sites in this file.
+    It appears to be inlineable (size = 29 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strncpy() (1 times)
+	strcpy() (1 times)
+	strlen() (1 times)
+	strchr() (1 times)
+
+There are 11 memory accesses with 31 dependences.
+
+
+==============================================================================
+
+static int parseKeyValuePairs() is called from 1 sites in this file.
+    It appears to be inlineable (size = 110 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strlen() (1 times)
+
+ADVICE: In function parseKeyValuePairs() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the loop surrounding lines 736-743
+	for the statement if ( tokens[i] == 61 ) goto g10; else goto g7; at line 736
+	and the statement POST_names[record*40+j] = tokens[i]; at line 743
+
+	Consider declaring 'tokens' as char * const restrict tokens
+	to assert that lvalues tokens[i];
+	and                    POST_names[record*40+j];
+	do not access the same object in memory.
+
+ADVICE: In function parseKeyValuePairs() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the loop surrounding lines 743-743
+	for the statement POST_names[record*40+j] = tokens[i]; at line 743
+
+	Consider declaring 'tokens' as char * const restrict tokens
+	to assert that lvalues tokens[i];
+	and                    POST_names[record*40+j];
+	do not access the same object in memory.
+
+ADVICE: In function parseKeyValuePairs() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the loop surrounding lines 746-743
+	for the statement if ( tokens[i] != 38 ) goto g6; else goto g8; at line 746
+	and the statement POST_names[record*40+j] = tokens[i]; at line 743
+
+	Consider declaring 'tokens' as char * const restrict tokens
+	to assert that lvalues tokens[i];
+	and                    POST_names[record*40+j];
+	do not access the same object in memory.
+
+ADVICE: In function parseKeyValuePairs() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the loop surrounding lines 748-760 with loop variable 'i'
+	for the statement if ( tokens[i] == 38 ) goto g17; else goto g12; at line 748
+	and the statement POST_values[record*1024+j] = tokens[i]; at line 760
+
+	Consider declaring 'tokens' as char * const restrict tokens
+	to assert that lvalues tokens[i];
+	and                    POST_values[record*1024+j];
+	do not access the same object in memory.
+
+ADVICE: In function parseKeyValuePairs() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the loop surrounding lines 758-760 with loop variable 'i'
+	for the statement if ( tokens[i] == 61 ) goto g13; else goto g15; at line 758
+	and the statement POST_values[record*1024+j] = tokens[i]; at line 760
+
+	Consider declaring 'tokens' as char * const restrict tokens
+	to assert that lvalues tokens[i];
+	and                    POST_values[record*1024+j];
+	do not access the same object in memory.
+
+ADVICE: In function parseKeyValuePairs() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the loop surrounding lines 760-760 with loop variable 'i'
+	for the statement POST_values[record*1024+j] = tokens[i]; at line 760
+
+	Consider declaring 'tokens' as char * const restrict tokens
+	to assert that lvalues tokens[i];
+	and                    POST_values[record*1024+j];
+	do not access the same object in memory.
+
+ADVICE: In function parseKeyValuePairs() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the loop surrounding lines 735-738
+	for the statement if ( tokens[i] != 38 ) goto g5; else goto g9; at line 735
+	and the statement POST_names[record*40+j] = 0; at line 738
+
+	Consider declaring 'tokens' as char * const restrict tokens
+	to assert that lvalues tokens[i];
+	and                    POST_names[record*40+j];
+	do not access the same object in memory.
+
+ADVICE: In function parseKeyValuePairs() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the loop surrounding lines 735-750
+	for the statement if ( tokens[i] != 38 ) goto g5; else goto g9; at line 735
+	and the statement POST_values[record*1024+j] = 0; at line 750
+
+	Consider declaring 'tokens' as char * const restrict tokens
+	to assert that lvalues tokens[i];
+	and                    POST_values[record*1024+j];
+	do not access the same object in memory.
+
+There are 10 memory accesses with 43 dependences.
+
+
+==============================================================================
+
+static int multipartParser() is called from 1 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	myreadline() (3 times)
+	getformfield() (2 times)
+	strchr() (1 times)
+	strcpy() (3 times)
+	parseKeyValuePairs() (1 times)
+	strlen() (1 times)
+	memcmp() (1 times)
+
+ADVICE: In function multipartParser() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the 'while' loop at lines /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c:465-470
+	for the statement if ( rawData[v$1+1] == 10 ) goto g10; else goto g11; at line 465
+	and the statement boundary[i] = rawData[v$1]; at line 466
+
+	Consider specifying option "-mt"
+	or declaring 'rawData' as unsigned char * const restrict rawData
+	or declaring 'boundary' as  char * restrict boundary
+	to assert that 'rawData' in the address of rawData[v$1+1];
+	and            'boundary' in the address of boundary[i];
+	do not access the same object in memory.
+
+ADVICE: In function multipartParser() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the 'while' loop at lines /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c:465-470
+	for the statement if ( rawData[v$1+1] == 10 ) goto g10; else goto g11; at line 465
+	and the statement boundaryend[i] = rawData[v$1]; at line 467
+
+	Consider specifying option "-mt"
+	or declaring 'rawData' as unsigned char * const restrict rawData
+	or declaring 'boundaryend' as  char * restrict boundaryend
+	to assert that 'rawData' in the address of rawData[v$1+1];
+	and            'boundaryend' in the address of boundaryend[i];
+	do not access the same object in memory.
+
+ADVICE: In function multipartParser() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the 'while' loop at lines /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c:465-470
+	for the statement boundary[i] = rawData[v$1]; at line 466
+
+	Consider specifying option "-mt"
+	or declaring 'rawData' as unsigned char * const restrict rawData
+	or declaring 'boundary' as  char * restrict boundary
+	to assert that 'rawData' in the address of rawData[v$1];
+	and            'boundary' in the address of boundary[i];
+	do not access the same object in memory.
+
+ADVICE: In function multipartParser() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the 'while' loop at lines /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c:465-470
+	for the statement boundary[i] = rawData[v$1]; at line 466
+	and the statement boundaryend[i] = rawData[v$1]; at line 467
+
+	Consider specifying option "-mt"
+	or declaring 'rawData' as unsigned char * const restrict rawData
+	or declaring 'boundaryend' as  char * restrict boundaryend
+	to assert that 'rawData' in the address of rawData[v$1];
+	and            'boundaryend' in the address of boundaryend[i];
+	do not access the same object in memory.
+
+ADVICE: In function multipartParser() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the 'while' loop at lines /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c:465-470
+	for the statement boundary[i] = rawData[v$1]; at line 466
+	and the statement v$1 = *&fptr; at line 467
+
+	Consider declaring 'boundary' as char * restrict boundary
+	to assert that lvalues boundary[i];
+	and                    *&fptr;
+	do not access the same object in memory.
+
+ADVICE: In function multipartParser() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the 'while' loop at lines /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c:465-470
+	for the statement boundary[i] = rawData[v$1]; at line 466
+	and the statement boundaryend[i] = rawData[v$1]; at line 467
+
+	Consider specifying option "-mt"
+	or declaring 'boundary' as char * restrict boundary
+	or declaring 'rawData' as  unsigned char * const restrict rawData
+	to assert that 'boundary' in the address of boundary[i];
+	and            'rawData' in the address of rawData[v$1];
+	do not access the same object in memory.
+
+ADVICE: In function multipartParser() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the 'while' loop at lines /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c:465-470
+	for the statement boundary[i] = rawData[v$1]; at line 466
+	and the statement boundaryend[i] = rawData[v$1]; at line 467
+
+	Consider specifying option "-mt"
+	or declaring 'boundary' as char * restrict boundary
+	or declaring 'boundaryend' as  char * restrict boundaryend
+	to assert that 'boundary' in the address of boundary[i];
+	and            'boundaryend' in the address of boundaryend[i];
+	do not access the same object in memory.
+
+ADVICE: In function multipartParser() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the 'while' loop at lines /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c:465-470
+	for the statement boundary[i] = rawData[v$1]; at line 466
+	and the statement v$1 = *&fptr+1; at line 469
+
+	Consider declaring 'boundary' as char * restrict boundary
+	to assert that lvalues boundary[i];
+	and                    *&fptr;
+	do not access the same object in memory.
+
+ADVICE: In function multipartParser() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the 'while' loop at lines /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c:465-470
+	for the statement boundary[i] = rawData[v$1]; at line 466
+	and the statement if ( rawData[v$1] != 13 ) goto g9; else goto g12; at line 469
+
+	Consider specifying option "-mt"
+	or declaring 'boundary' as char * restrict boundary
+	or declaring 'rawData' as  unsigned char * const restrict rawData
+	to assert that 'boundary' in the address of boundary[i];
+	and            'rawData' in the address of rawData[v$1];
+	do not access the same object in memory.
+
+ADVICE: In function multipartParser() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the 'while' loop at lines /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c:465-470
+	for the statement boundaryend[i] = rawData[v$1]; at line 467
+	and the statement v$1 = *&fptr; at line 467
+
+	Consider declaring 'boundaryend' as char * restrict boundaryend
+	to assert that lvalues boundaryend[i];
+	and                    *&fptr;
+	do not access the same object in memory.
+
+ADVICE: In function multipartParser() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the 'while' loop at lines /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c:465-470
+	for the statement boundaryend[i] = rawData[v$1]; at line 467
+
+	Consider specifying option "-mt"
+	or declaring 'rawData' as unsigned char * const restrict rawData
+	or declaring 'boundaryend' as  char * restrict boundaryend
+	to assert that 'rawData' in the address of rawData[v$1];
+	and            'boundaryend' in the address of boundaryend[i];
+	do not access the same object in memory.
+
+ADVICE: In function multipartParser() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the 'while' loop at lines /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c:465-470
+	for the statement boundaryend[i] = rawData[v$1]; at line 467
+	and the statement v$1 = *&fptr+1; at line 469
+
+	Consider declaring 'boundaryend' as char * restrict boundaryend
+	to assert that lvalues boundaryend[i];
+	and                    *&fptr;
+	do not access the same object in memory.
+
+ADVICE: In function multipartParser() in /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c
+	in the 'while' loop at lines /home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/webpages/webserver.c:465-470
+	for the statement boundaryend[i] = rawData[v$1]; at line 467
+	and the statement if ( rawData[v$1] != 13 ) goto g9; else goto g12; at line 469
+
+	Consider specifying option "-mt"
+	or declaring 'boundaryend' as char * restrict boundaryend
+	or declaring 'rawData' as  unsigned char * const restrict rawData
+	to assert that 'boundaryend' in the address of boundaryend[i];
+	and            'rawData' in the address of rawData[v$1];
+	do not access the same object in memory.
+
+There are 54 memory accesses with 750 dependences.
+
+
+==============================================================================
+
+extern int html_processFileUpload() is called from 0 sites in this file.
+    It appears to be inlineable (size = 47 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	multipartParser() (1 times)
+
+There are 1 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+extern unsigned html_getsize() is called from 0 sites in this file.
+    It appears to be inlineable (size = 2 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 1 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+extern char *html_getpage() is called from 0 sites in this file.
+    It appears to be inlineable (size = 3 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 0 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+extern char *html_getValueFor() is called from 0 sites in this file.
+    It appears to be inlineable (size = 33 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strcmp() (1 times)
+
+There are 3 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+extern unsigned html_getNumberPostVars() is called from 0 sites in this file.
+    It appears to be inlineable (size = 2 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 1 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+extern void html_end() is called from 0 sites in this file.
+    It appears to be inlineable (size = 22 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strlen() (1 times)
+
+There are 4 memory accesses with 2 dependences.
+
+<<NULL MIX DOMAIN>>
+
+== END OF INFO OUTPUT==

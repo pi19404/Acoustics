@@ -1,0 +1,42 @@
+custom_hpdspua_evmc6678l.zip: Platform.xdc
+Platform.xdc:
+custom_hpdspua_evmc6678l.zip: Platform.xs
+Platform.xs:
+custom_hpdspua_evmc6678l.zip: config.bld
+config.bld:
+custom_hpdspua_evmc6678l.zip: package/.vers_b150
+package/.vers_b150:
+custom_hpdspua_evmc6678l.zip: package/.vers_c150
+package/.vers_c150:
+custom_hpdspua_evmc6678l.zip: package/.vers_g180
+package/.vers_g180:
+custom_hpdspua_evmc6678l.zip: package/.vers_r170
+package/.vers_r170:
+custom_hpdspua_evmc6678l.zip: package/.xdc-v56
+package/.xdc-v56:
+custom_hpdspua_evmc6678l.zip: package/build.cfg
+package/build.cfg:
+custom_hpdspua_evmc6678l.zip: package/custom.hpdspua.evmc6678l.ccs
+package/custom.hpdspua.evmc6678l.ccs:
+custom_hpdspua_evmc6678l.zip: package/custom.hpdspua.evmc6678l.sch
+package/custom.hpdspua.evmc6678l.sch:
+custom_hpdspua_evmc6678l.zip: package/custom_hpdspua_evmc6678l.class
+package/custom_hpdspua_evmc6678l.class:
+custom_hpdspua_evmc6678l.zip: package/custom_hpdspua_evmc6678l.java
+package/custom_hpdspua_evmc6678l.java:
+custom_hpdspua_evmc6678l.zip: package/package.bld.xml
+package/package.bld.xml:
+custom_hpdspua_evmc6678l.zip: package/package.defs.h
+package/package.defs.h:
+custom_hpdspua_evmc6678l.zip: package/package.doc.xml
+package/package.doc.xml:
+custom_hpdspua_evmc6678l.zip: package/package.ext.xml
+package/package.ext.xml:
+custom_hpdspua_evmc6678l.zip: package/package.rel.dot
+package/package.rel.dot:
+custom_hpdspua_evmc6678l.zip: package/package_custom.hpdspua.evmc6678l.c
+package/package_custom.hpdspua.evmc6678l.c:
+custom_hpdspua_evmc6678l.zip: package.bld
+package.bld:
+custom_hpdspua_evmc6678l.zip: package.xdc
+package.xdc:

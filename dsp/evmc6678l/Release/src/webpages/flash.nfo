@@ -1,0 +1,92 @@
+TMS320C6x C/C++ Optimizer               v7.4.0
+Build Number 1MGRS-0QTSRVUW-UARAR-SAW-ZAZG_X_U_Q
+
+		======File-level Analysis Summary======
+
+
+extern int serveFlashPage() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	html_getpage() (1 times)
+	httpSendClientStr() (1 times)
+	html_getsize() (1 times)
+	httpSendEntityLength() (1 times)
+	httpSendStatusLine() (1 times)
+	html_end() (1 times)
+	platform_device_close() (1 times)
+	platform_device_open() (1 times)
+	memcpy() (2 times)
+	strncmp() (1 times)
+	html_getValueFor() (1 times)
+	html_var() (17 times)
+	html() (70 times)
+	html_start() (1 times)
+	html_processPost() (1 times)
+
+static char *strcpy() is called from 0 sites in this file.
+    It appears to be inlineable (size = 23 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+static int strncmp() is called from 1 sites in this file.
+    It appears to be inlineable (size = 35 units)
+    It has 4 non-trivial scope blocks nested 4 deep.
+    It calls these functions:
+	<NONE>
+
+>>>> WARNING - Function strcpy() is not called and will not be compiled
+
+Variable has no explicitly assigned value:
+	extern char *PAGEFOOTER
+
+Variable has no explicitly assigned value:
+	extern char *PAGEWRAPPER
+
+Variable has no explicitly assigned value:
+	extern unsigned platform_errno
+
+Variable has no explicitly assigned value:
+	extern char *CONTENT_TYPE_HTML
+
+Address of global variable is never taken:
+	static unsigned flash_selection
+
+
+
+These functions may be recursive:
+	serveFlashPage()
+Inlineable function will be suppressed: strncmp()
+
+These external functions are called but not defined here:
+	memcpy()
+	html_processPost()
+	html_start()
+	html()
+	html_var()
+	html_getValueFor()
+	platform_device_open()
+	platform_device_close()
+	html_end()
+	httpSendStatusLine()
+	httpSendEntityLength()
+	html_getsize()
+	httpSendClientStr()
+	html_getpage()
+
+
+		======= End file-level Analysis =======
+
+
+==============================================================================
+
+extern int serveFlashPage() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strncmp() (1 times)
+
+There are 24 memory accesses with 7 dependences.
+
+<<NULL MIX DOMAIN>>
+
+== END OF INFO OUTPUT==

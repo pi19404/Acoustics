@@ -1,0 +1,95 @@
+TMS320C6x C/C++ Optimizer               v7.4.0
+Build Number 1MGRS-0QTSRVUW-UARAR-SAW-ZAZG_X_U_Q
+
+		======File-level Analysis Summary======
+
+
+extern int processDiagnosticRequest() is called from 0 sites in this file.
+    It appears to be inlineable (size = 195 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	html_getpage() (1 times)
+	httpSendClientStr() (1 times)
+	html_getsize() (1 times)
+	httpSendEntityLength() (1 times)
+	httpSendStatusLine() (1 times)
+	html_end() (1 times)
+	platform_delay() (2 times)
+	platform_led() (2 times)
+	platform_uart_write() (3 times)
+	platform_internal_memory_test() (1 times)
+	atoi() (2 times)
+	platform_external_memory_test() (1 times)
+	strcmp() (4 times)
+	html_var() (6 times)
+	html() (12 times)
+	html_start() (1 times)
+	platform_write() (1 times)
+	httpSendErrorResponse() (1 times)
+	html_getValueFor() (4 times)
+	html_processPost() (1 times)
+
+static int strcmp() is called from 4 sites in this file.
+    It appears to be inlineable (size = 23 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+Variable has no explicitly assigned value:
+	extern char *MAINHDR
+
+Variable has no explicitly assigned value:
+	extern char *PAGEFOOTER
+
+Variable has no explicitly assigned value:
+	extern char *PAGEWRAPPERBACK
+
+Variable has no explicitly assigned value:
+	extern char *PAGEHEAD
+
+Variable has no explicitly assigned value:
+	extern char *CONTENT_TYPE_HTML
+
+
+These functions may be recursive:
+	processDiagnosticRequest()
+Inlineable function will be suppressed: strcmp()
+
+These external functions are called but not defined here:
+	atoi()
+	html_processPost()
+	html_getValueFor()
+	httpSendErrorResponse()
+	platform_write()
+	html_start()
+	html()
+	html_var()
+	platform_external_memory_test()
+	platform_internal_memory_test()
+	platform_uart_write()
+	platform_led()
+	platform_delay()
+	html_end()
+	httpSendStatusLine()
+	httpSendEntityLength()
+	html_getsize()
+	httpSendClientStr()
+	html_getpage()
+
+
+		======= End file-level Analysis =======
+
+
+==============================================================================
+
+extern int processDiagnosticRequest() is called from 0 sites in this file.
+    It appears to be inlineable (size = 195 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strcmp() (4 times)
+
+There are 16 memory accesses with 0 dependences.
+
+<<NULL MIX DOMAIN>>
+
+== END OF INFO OUTPUT==

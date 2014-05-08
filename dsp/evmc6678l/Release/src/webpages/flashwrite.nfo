@@ -1,0 +1,89 @@
+TMS320C6x C/C++ Optimizer               v7.4.0
+Build Number 1MGRS-0QTSRVUW-UARAR-SAW-ZAZG_X_U_Q
+
+		======File-level Analysis Summary======
+
+
+extern int serveFlashWritePage() is called from 0 sites in this file.
+    It appears to be inlineable (size = 233 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	html_getpage() (1 times)
+	httpSendClientStr() (1 times)
+	html_getsize() (1 times)
+	httpSendEntityLength() (1 times)
+	httpSendStatusLine() (1 times)
+	html_end() (1 times)
+	platform_device_close() (1 times)
+	platform_device_write() (1 times)
+	platform_write() (5 times)
+	platform_offset_to_blocknpage() (1 times)
+	platform_blocknpage_to_offset() (1 times)
+	platform_device_open() (1 times)
+	atoi() (2 times)
+	html_getValueFor() (2 times)
+	html_processFileUpload() (1 times)
+	memset() (1 times)
+	html_var() (10 times)
+	html() (12 times)
+	html_start() (1 times)
+
+Variable has no explicitly assigned value:
+	extern char *PAGEFOOTER
+
+Variable has no explicitly assigned value:
+	extern char *PAGEWRAPPER
+
+Variable has no explicitly assigned value:
+	extern char *PAGEHEAD
+
+Variable has no explicitly assigned value:
+	extern unsigned platform_errno
+
+Variable has no explicitly assigned value:
+	extern char *CONTENT_TYPE_HTML
+
+
+These functions may be recursive:
+	serveFlashWritePage()
+
+These external functions are called but not defined here:
+	memset()
+	atoi()
+	html_start()
+	html()
+	html_var()
+	html_processFileUpload()
+	html_getValueFor()
+	platform_device_open()
+	platform_blocknpage_to_offset()
+	platform_offset_to_blocknpage()
+	platform_write()
+	platform_device_write()
+	platform_device_close()
+	html_end()
+	httpSendStatusLine()
+	httpSendEntityLength()
+	html_getsize()
+	httpSendClientStr()
+	html_getpage()
+
+
+		======= End file-level Analysis =======
+
+
+==============================================================================
+
+extern int serveFlashWritePage() is called from 0 sites in this file.
+    It appears to be inlineable (size = 233 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+Replacing sblock.block; with the simple variable '$O$CSU$sblock$block' in extern int serveFlashWritePage().
+Replacing sblock.page; with the simple variable '$O$CSU$sblock$page' in extern int serveFlashWritePage().
+
+There are 21 memory accesses with 0 dependences.
+
+<<NULL MIX DOMAIN>>
+
+== END OF INFO OUTPUT==

@@ -1,0 +1,75 @@
+TMS320C6x C/C++ Optimizer               v7.4.0
+Build Number 1MGRS-0QTSRVUW-UARAR-SAW-ZAZG_X_U_Q
+
+		======File-level Analysis Summary======
+
+
+static void CSL_CPSW_3GF_getStats() is called from 1 sites in this file.
+    It appears to be inlineable (size = 40 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+extern int serveStatisticsPage() is called from 0 sites in this file.
+    It appears to be inlineable (size = 210 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	html_getpage() (1 times)
+	httpSendClientStr() (1 times)
+	html_getsize() (1 times)
+	httpSendEntityLength() (1 times)
+	httpSendStatusLine() (1 times)
+	html_end() (1 times)
+	CSL_CPSW_3GF_getStats() (1 times)
+	html_var() (26 times)
+	html() (19 times)
+	html_start() (1 times)
+
+Variable has no explicitly assigned value:
+	extern char *PAGEFOOTER
+
+Variable has no explicitly assigned value:
+	extern char *PAGEWRAPPER
+
+Variable has no explicitly assigned value:
+	extern char *PAGEHEAD
+
+Variable has no explicitly assigned value:
+	extern char *CONTENT_TYPE_HTML
+
+
+These functions may be recursive:
+	serveStatisticsPage()
+
+Function CSL_CPSW_3GF_getStats() will be specialized on these parameters:
+	[1] pCpswStats == &gEmacStats;
+Inlineable function will be suppressed: CSL_CPSW_3GF_getStats()
+
+These external functions are called but not defined here:
+	html_start()
+	html()
+	html_var()
+	html_end()
+	httpSendStatusLine()
+	httpSendEntityLength()
+	html_getsize()
+	httpSendClientStr()
+	html_getpage()
+
+
+		======= End file-level Analysis =======
+
+
+==============================================================================
+
+extern int serveStatisticsPage() is called from 0 sites in this file.
+    It appears to be inlineable (size = 210 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	CSL_CPSW_3GF_getStats() (1 times)
+
+There are 33 memory accesses with 29 dependences.
+
+<<NULL MIX DOMAIN>>
+
+== END OF INFO OUTPUT==

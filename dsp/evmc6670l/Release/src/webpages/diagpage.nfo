@@ -1,0 +1,64 @@
+TMS320C6x C/C++ Optimizer               v7.4.0
+Build Number 1MGRS-0QTSRVUW-UARAR-SAW-ZAZG_X_U_Q
+
+		======File-level Analysis Summary======
+
+
+extern int serveDiagnosticPage() is called from 0 sites in this file.
+    It appears to be inlineable (size = 209 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	html_getpage() (1 times)
+	httpSendClientStr() (1 times)
+	html_getsize() (1 times)
+	httpSendEntityLength() (1 times)
+	httpSendStatusLine() (1 times)
+	html_end() (1 times)
+	html_var() (5 times)
+	html() (56 times)
+	html_start() (1 times)
+
+Variable has no explicitly assigned value:
+	extern char *PAGEFOOTER
+
+Variable has no explicitly assigned value:
+	extern char *PAGEWRAPPER
+
+Variable has no explicitly assigned value:
+	extern char *PAGEHEAD
+
+Variable has no explicitly assigned value:
+	extern char *CONTENT_TYPE_HTML
+
+
+These functions may be recursive:
+	serveDiagnosticPage()
+
+These external functions are called but not defined here:
+	html_start()
+	html()
+	html_var()
+	html_end()
+	httpSendStatusLine()
+	httpSendEntityLength()
+	html_getsize()
+	httpSendClientStr()
+	html_getpage()
+
+
+		======= End file-level Analysis =======
+
+
+==============================================================================
+
+extern int serveDiagnosticPage() is called from 0 sites in this file.
+    It appears to be inlineable (size = 209 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 8 memory accesses with 0 dependences.
+
+<<NULL MIX DOMAIN>>
+
+== END OF INFO OUTPUT==

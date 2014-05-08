@@ -1,0 +1,217 @@
+TMS320C6x C/C++ Optimizer               v7.4.0
+Build Number 1MGRS-0QTSRVUW-UARAR-SAW-ZAZG_X_U_Q
+
+		======File-level Analysis Summary======
+
+
+extern void CreateIPUse() is called from 1 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	DNSGetHostByAddr() (2 times)
+	html_var() (6 times)
+	html() (12 times)
+	getpeername() (1 times)
+	NtIPN2Str() (2 times)
+	getsockname() (1 times)
+
+extern void CreateRoute() is called from 1 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	RtWalkEnd() (1 times)
+	RtWalkNext() (1 times)
+	LLIGetMacAddr() (1 times)
+	strcat() (10 times)
+	memcpy() (2 times)
+	html_var() (7 times)
+	NtIPN2Str() (3 times)
+	html() (8 times)
+	llExit() (7 times)
+	RtWalkBegin() (1 times)
+	llEnter() (6 times)
+
+extern void CreatehtmlSockets() is called from 1 sites in this file.
+    It appears to be inlineable (size = 15 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	DumphtmlSockets() (2 times)
+	html() (4 times)
+
+static void DumphtmlSockets() is called from 2 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	xdc_runtime_Memory_free__E() (1 times)
+	html_var() (3 times)
+	NtIPN2Str() (2 times)
+	html() (9 times)
+	llExit() (1 times)
+	SockGetPcb() (1 times)
+	llEnter() (1 times)
+	xdc_runtime_Memory_alloc__E() (1 times)
+	xdc_runtime_Error_init__E() (1 times)
+
+extern int serveInformationPage() is called from 0 sites in this file.
+    It appears to be inlineable (size = 391 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	html_getpage() (1 times)
+	httpSendClientStr() (1 times)
+	html_getsize() (1 times)
+	httpSendEntityLength() (1 times)
+	httpSendStatusLine() (1 times)
+	html_end() (1 times)
+	CreateRoute() (1 times)
+	CreatehtmlSockets() (1 times)
+	CreateIPUse() (1 times)
+	emac_get_version() (1 times)
+	CSL_versionGetStr() (1 times)
+	memcpy() (4 times)
+	platform_get_switch_state() (2 times)
+	platform_get_coreid() (1 times)
+	ti_sysbios_knl_Clock_getTicks__E() (1 times)
+	html_var() (20 times)
+	html() (54 times)
+	html_start() (1 times)
+
+static char *strcat() is called from 10 sites in this file.
+    It appears to be inlineable (size = 32 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+static char *strcpy() is called from 0 sites in this file.
+    It appears to be inlineable (size = 23 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+>>>> WARNING - Function strcpy() is not called and will not be compiled
+
+Variable has no explicitly assigned value:
+	extern const unsigned ti_sysbios_knl_Clock_tickPeriod__C
+
+Variable has no explicitly assigned value:
+	extern char *ROW_START
+
+Variable has no explicitly assigned value:
+	extern char *ROW_END
+
+Variable has no explicitly assigned value:
+	extern char *HDR
+
+Variable has no explicitly assigned value:
+	extern char *PAGEFOOTER
+
+Variable has no explicitly assigned value:
+	extern char *PAGEWRAPPER
+
+Variable has no explicitly assigned value:
+	extern char *PAGEHEAD
+
+Variable has no explicitly assigned value:
+	extern char *CONTENT_TYPE_HTML
+
+
+These functions may be recursive:
+	serveInformationPage()
+	CreateRoute()
+	CreatehtmlSockets()
+	DumphtmlSockets()
+	CreateIPUse()
+
+Results of interprocedural value propagation:
+
+   static void DumphtmlSockets() has these parameter attributes:
+      unsigned htmlSockProt :  htmlSockProt <= 2u;  htmlSockProt >= 1u;
+Inlineable function will be suppressed: strcat()
+
+These external functions are called but not defined here:
+	memcpy()
+	html_start()
+	ti_sysbios_knl_Clock_getTicks__E()
+	platform_get_coreid()
+	platform_get_switch_state()
+	CSL_versionGetStr()
+	emac_get_version()
+	html_end()
+	httpSendStatusLine()
+	httpSendEntityLength()
+	html_getsize()
+	httpSendClientStr()
+	html_getpage()
+	xdc_runtime_Error_init__E()
+	xdc_runtime_Memory_alloc__E()
+	SockGetPcb()
+	xdc_runtime_Memory_free__E()
+	llEnter()
+	RtWalkBegin()
+	llExit()
+	LLIGetMacAddr()
+	RtWalkNext()
+	RtWalkEnd()
+	getsockname()
+	NtIPN2Str()
+	getpeername()
+	html()
+	html_var()
+	DNSGetHostByAddr()
+
+
+		======= End file-level Analysis =======
+
+
+==============================================================================
+
+extern void CreateIPUse() is called from 1 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 16 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+static void DumphtmlSockets() is called from 2 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 10 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+extern void CreatehtmlSockets() is called from 1 sites in this file.
+    It appears to be inlineable (size = 15 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	DumphtmlSockets() (2 times)
+
+There are 0 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+extern void CreateRoute() is called from 1 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strcat() (10 times)
+
+There are 68 memory accesses with 1510 dependences.
+
+
+==============================================================================
+
+extern int serveInformationPage() is called from 0 sites in this file.
+    It appears to be inlineable (size = 391 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	CreateIPUse() (1 times)
+	CreatehtmlSockets() (1 times)
+	CreateRoute() (1 times)
+
+There are 28 memory accesses with 0 dependences.
+
+<<NULL MIX DOMAIN>>
+
+== END OF INFO OUTPUT==

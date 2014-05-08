@@ -1,0 +1,402 @@
+TMS320C6x C/C++ Optimizer               v7.4.0
+Build Number 1MGRS-0QTSRVUW-UARAR-SAW-ZAZG_X_U_Q
+
+		======File-level Analysis Summary======
+
+
+static void TCP_perform_receive() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	TaskDestroy() (1 times)
+	fdCloseSession() (1 times)
+	TaskSleep() (1 times)
+	fdClose() (4 times)
+	fdError() (4 times)
+	TaskCreate() (1 times)
+	strcat() (7 times)
+	sprintf() (9 times)
+	llExit() (2 times)
+	llTimerGetTime() (2 times)
+	llEnter() (2 times)
+	recvncfree() (1 times)
+	recvnc() (1 times)
+	setsockopt() (2 times)
+	accept() (1 times)
+	listen() (1 times)
+	bind() (1 times)
+	mmZeroInit() (2 times)
+	socket() (1 times)
+	TaskSelf() (3 times)
+	fdOpenSession() (1 times)
+	platform_write() (16 times)
+
+static void TCP_perform_send() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	TaskDestroy() (1 times)
+	fdCloseSession() (1 times)
+	fdClose() (1 times)
+	xdc_runtime_Memory_free__E() (1 times)
+	TaskCreate() (1 times)
+	strcat() (6 times)
+	sprintf() (8 times)
+	fdError() (3 times)
+	send() (1 times)
+	llExit() (2 times)
+	llTimerGetTime() (2 times)
+	llEnter() (2 times)
+	xdc_runtime_Memory_alloc__E() (1 times)
+	TaskSleep() (2 times)
+	connect() (1 times)
+	inet_addr() (1 times)
+	mmZeroInit() (1 times)
+	socket() (1 times)
+	TaskSelf() (3 times)
+	fdOpenSession() (1 times)
+	xdc_runtime_Error_init__E() (1 times)
+	platform_write() (16 times)
+
+static void UDP_perform_receive() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	TaskDestroy() (1 times)
+	fdCloseSession() (1 times)
+	TaskSleep() (1 times)
+	fdClose() (1 times)
+	TaskCreate() (1 times)
+	strcat() (7 times)
+	sprintf() (9 times)
+	fdError() (2 times)
+	recvncfree() (1 times)
+	llExit() (2 times)
+	llTimerGetTime() (2 times)
+	llEnter() (2 times)
+	recvnc() (1 times)
+	setsockopt() (1 times)
+	bind() (1 times)
+	mmZeroInit() (1 times)
+	socket() (1 times)
+	TaskSelf() (3 times)
+	fdOpenSession() (1 times)
+	platform_write() (16 times)
+
+static void UDP_perform_send() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	TaskDestroy() (1 times)
+	fdCloseSession() (1 times)
+	TaskSleep() (1 times)
+	fdClose() (1 times)
+	xdc_runtime_Memory_free__E() (1 times)
+	TaskCreate() (1 times)
+	strcat() (6 times)
+	sprintf() (7 times)
+	fdError() (3 times)
+	send() (1 times)
+	llExit() (2 times)
+	llTimerGetTime() (2 times)
+	llEnter() (2 times)
+	recvncfree() (1 times)
+	recvnc() (1 times)
+	xdc_runtime_Memory_alloc__E() (1 times)
+	setsockopt() (1 times)
+	connect() (1 times)
+	bind() (1 times)
+	inet_addr() (2 times)
+	mmZeroInit() (2 times)
+	socket() (1 times)
+	fdOpenSession() (1 times)
+	TaskSelf() (4 times)
+	TaskSetPri() (1 times)
+	platform_write() (18 times)
+	xdc_runtime_Error_init__E() (1 times)
+
+static void copyTCPTestee_NetworkOpen() is called from 1 sites in this file.
+    It appears to be inlineable (size = 15 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	TaskCreate() (1 times)
+
+static void copyTCPTester_NetworkOpen() is called from 1 sites in this file.
+    It appears to be inlineable (size = 15 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	TaskCreate() (1 times)
+
+static void copyUDPTestee_NetworkOpen() is called from 1 sites in this file.
+    It appears to be inlineable (size = 15 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	TaskCreate() (1 times)
+
+static void copyUDPTester_NetworkOpen() is called from 1 sites in this file.
+    It appears to be inlineable (size = 15 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	TaskCreate() (1 times)
+
+extern int ndkThroughputBench() is called from 0 sites in this file.
+    It appears to be inlineable (size = 238 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	html_getpage() (1 times)
+	httpSendClientStr() (1 times)
+	html_getsize() (1 times)
+	httpSendEntityLength() (1 times)
+	httpSendStatusLine() (1 times)
+	html_end() (1 times)
+	html_var() (46 times)
+	html() (6 times)
+	html_start() (1 times)
+	copyTCPTester_NetworkOpen() (1 times)
+	copyUDPTester_NetworkOpen() (1 times)
+	copyTCPTestee_NetworkOpen() (1 times)
+	copyUDPTestee_NetworkOpen() (1 times)
+	strcmp() (4 times)
+	platform_write() (2 times)
+	strcpy() (1 times)
+	html_getValueFor() (2 times)
+	atoi() (1 times)
+	getpeername() (1 times)
+	NtIPN2Str() (2 times)
+	getsockname() (1 times)
+	html_processPost() (1 times)
+
+extern void sendclient() is called from 0 sites in this file.
+    It appears to be inlineable (size = 77 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	TaskDestroy() (1 times)
+	fdCloseSession() (1 times)
+	fdClose() (1 times)
+	fdError() (3 times)
+	platform_write() (3 times)
+	strlen() (1 times)
+	send() (1 times)
+	connect() (1 times)
+	inet_addr() (1 times)
+	mmZeroInit() (1 times)
+	socket() (1 times)
+	fdOpenSession() (1 times)
+	TaskSelf() (4 times)
+	TaskSetPri() (1 times)
+
+static char *strcat() is called from 26 sites in this file.
+    It appears to be inlineable (size = 32 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+static int strcmp() is called from 4 sites in this file.
+    It appears to be inlineable (size = 23 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+static char *strcpy() is called from 1 sites in this file.
+    It appears to be inlineable (size = 23 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+static unsigned strlen() is called from 1 sites in this file.
+    It appears to be inlineable (size = 15 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+Variable has no explicitly assigned value:
+	extern char *PAGEFOOTER
+
+Variable has no explicitly assigned value:
+	extern char *PAGEHEAD
+
+Variable has no explicitly assigned value:
+	extern char *CONTENT_TYPE_HTML
+
+Address of global variable is never taken:
+	static int PROTO
+	static int DIRECTION
+	static int TESTSIZE
+	static int PACKETS
+
+
+
+These functions may be recursive:
+	TCP_perform_receive()
+	TCP_perform_send()
+	UDP_perform_receive()
+	UDP_perform_send()
+	ndkThroughputBench()
+	copyTCPTester_NetworkOpen()
+	copyUDPTester_NetworkOpen()
+	copyTCPTestee_NetworkOpen()
+	copyUDPTestee_NetworkOpen()
+	sendclient()
+Inlineable function will be suppressed: strlen()
+Inlineable function will be suppressed: strcpy()
+Inlineable function will be suppressed: strcmp()
+Inlineable function will be suppressed: strcat()
+
+These external functions are called but not defined here:
+	atoi()
+	sprintf()
+	html_processPost()
+	getsockname()
+	NtIPN2Str()
+	getpeername()
+	html_getValueFor()
+	html_start()
+	html()
+	html_var()
+	html_end()
+	httpSendStatusLine()
+	httpSendEntityLength()
+	html_getsize()
+	httpSendClientStr()
+	html_getpage()
+	TaskSetPri()
+	xdc_runtime_Error_init__E()
+	inet_addr()
+	connect()
+	xdc_runtime_Memory_alloc__E()
+	send()
+	xdc_runtime_Memory_free__E()
+	platform_write()
+	fdOpenSession()
+	TaskSelf()
+	socket()
+	mmZeroInit()
+	bind()
+	listen()
+	accept()
+	setsockopt()
+	recvnc()
+	recvncfree()
+	llEnter()
+	llTimerGetTime()
+	llExit()
+	TaskCreate()
+	fdError()
+	fdClose()
+	TaskSleep()
+	fdCloseSession()
+	TaskDestroy()
+
+
+		======= End file-level Analysis =======
+
+
+==============================================================================
+
+extern void sendclient() is called from 0 sites in this file.
+    It appears to be inlineable (size = 77 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strlen() (1 times)
+
+There are 5 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+static void copyUDPTestee_NetworkOpen() is called from 1 sites in this file.
+    It appears to be inlineable (size = 15 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 2 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+static void copyTCPTestee_NetworkOpen() is called from 1 sites in this file.
+    It appears to be inlineable (size = 15 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 2 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+static void copyUDPTester_NetworkOpen() is called from 1 sites in this file.
+    It appears to be inlineable (size = 15 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 2 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+static void copyTCPTester_NetworkOpen() is called from 1 sites in this file.
+    It appears to be inlineable (size = 15 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 2 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+extern int ndkThroughputBench() is called from 0 sites in this file.
+    It appears to be inlineable (size = 238 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strcpy() (1 times)
+	strcmp() (4 times)
+	copyUDPTestee_NetworkOpen() (1 times)
+	copyTCPTestee_NetworkOpen() (1 times)
+	copyUDPTester_NetworkOpen() (1 times)
+	copyTCPTester_NetworkOpen() (1 times)
+
+There are 31 memory accesses with 30 dependences.
+
+
+==============================================================================
+
+static void UDP_perform_send() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strcat() (6 times)
+
+There are 62 memory accesses with 216 dependences.
+
+
+==============================================================================
+
+static void UDP_perform_receive() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strcat() (7 times)
+
+There are 55 memory accesses with 287 dependences.
+
+
+==============================================================================
+
+static void TCP_perform_send() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strcat() (6 times)
+
+There are 50 memory accesses with 210 dependences.
+
+
+==============================================================================
+
+static void TCP_perform_receive() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	strcat() (7 times)
+
+There are 53 memory accesses with 287 dependences.
+
+<<NULL MIX DOMAIN>>
+
+== END OF INFO OUTPUT==

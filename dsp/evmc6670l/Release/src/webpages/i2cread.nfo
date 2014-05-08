@@ -1,0 +1,99 @@
+TMS320C6x C/C++ Optimizer               v7.4.0
+Build Number 1MGRS-0QTSRVUW-UARAR-SAW-ZAZG_X_U_Q
+
+		======File-level Analysis Summary======
+
+
+extern int serveEepromReadPage() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	html_getpage() (1 times)
+	httpSendClientStr() (1 times)
+	html_getsize() (1 times)
+	httpSendEntityLength() (1 times)
+	httpSendStatusLine() (1 times)
+	html_end() (1 times)
+	platform_device_close() (1 times)
+	xdc_runtime_Memory_free__E() (1 times)
+	toascii() (8 times)
+	platform_device_read() (1 times)
+	memset() (1 times)
+	xdc_runtime_Memory_alloc__E() (1 times)
+	platform_device_open() (1 times)
+	atoi() (2 times)
+	html_getValueFor() (2 times)
+	html_var() (7 times)
+	html() (29 times)
+	html_start() (1 times)
+	xdc_runtime_Error_init__E() (1 times)
+	html_processPost() (1 times)
+
+static int toascii() is called from 8 sites in this file.
+    It appears to be inlineable (size = 5 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+Making unmodified global variable CONST:
+	static int eeprom_page_size = 1024;
+
+Variable has no explicitly assigned value:
+	extern char *PAGEFOOTER
+
+Variable has no explicitly assigned value:
+	extern char *PAGEWRAPPER
+
+Variable has no explicitly assigned value:
+	extern char *CONTENT_TYPE_HTML
+
+Address of global variable is never taken:
+	static const int eeprom_page_size
+
+
+Global variable is not modified in this file:
+	static const int eeprom_page_size
+
+
+These functions may be recursive:
+	serveEepromReadPage()
+Inlineable function will be suppressed: toascii()
+
+These external functions are called but not defined here:
+	atoi()
+	memset()
+	html_processPost()
+	xdc_runtime_Error_init__E()
+	html_start()
+	html()
+	html_var()
+	html_getValueFor()
+	platform_device_open()
+	xdc_runtime_Memory_alloc__E()
+	platform_device_read()
+	xdc_runtime_Memory_free__E()
+	platform_device_close()
+	html_end()
+	httpSendStatusLine()
+	httpSendEntityLength()
+	html_getsize()
+	httpSendClientStr()
+	html_getpage()
+
+Variable's value is constant in this file:
+    static const int eeprom_page_size = 1024;
+
+		======= End file-level Analysis =======
+
+
+==============================================================================
+
+extern int serveEepromReadPage() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	toascii() (8 times)
+
+There are 22 memory accesses with 0 dependences.
+
+<<NULL MIX DOMAIN>>
+
+== END OF INFO OUTPUT==

@@ -1,0 +1,317 @@
+TMS320C6x C/C++ Optimizer               v7.4.0
+Build Number 1MGRS-0QTSRVUW-UARAR-SAW-ZAZG_X_U_Q
+
+		======File-level Analysis Summary======
+
+
+extern void CheckDHCPOptions() is called from 0 sites in this file.
+    It appears to be inlineable (size = 81 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	NtIPN2Str() (2 times)
+	CfgGetImmediate() (2 times)
+	platform_write() (8 times)
+
+extern void DHCP_reset() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	TaskExit() (1 times)
+	CfgEntryDeRef() (1 times)
+	CfgAddEntry() (1 times)
+	mmZeroInit() (1 times)
+	CfgRemoveEntry() (1 times)
+	CfgEntryGetData() (1 times)
+	CfgGetEntry() (1 times)
+	TaskSleep() (1 times)
+
+extern void EVM_init() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	platform_delay() (2 times)
+	platform_led() (2 times)
+	platform_write() (3 times)
+	platform_init() (1 times)
+	memset() (2 times)
+
+static void NetworkClose() is called from 0 sites in this file.
+    It appears to be inlineable (size = 1 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+static void NetworkIPAddr() is called from 0 sites in this file.
+    It appears to be inlineable (size = 59 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	platform_write() (3 times)
+
+static void NetworkOpen() is called from 0 sites in this file.
+    It appears to be inlineable (size = 1 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+static void ServiceReport() is called from 0 sites in this file.
+    It has 5 non-trivial scope blocks nested 4 deep.
+    It calls these functions:
+	TaskCreate() (1 times)
+	CfgEntryGetData() (1 times)
+	CfgAddEntry() (1 times)
+	inet_addr() (1 times)
+	platform_write() (1 times)
+
+extern int hpdspuaStart() is called from 0 sites in this file.
+    It has 4 non-trivial scope blocks nested 4 deep.
+    It calls these functions:
+	platform_led() (1 times)
+	NC_SystemClose() (1 times)
+	CfgFree() (1 times)
+	RemoveWebFiles() (1 times)
+	NC_NetStart() (1 times)
+	AddWebFiles() (1 times)
+	strcpy() (1 times)
+	inet_addr() (6 times)
+	mmZeroInit() (4 times)
+	platform_get_switch_state() (1 times)
+	CfgAddEntry() (11 times)
+	strlen() (5 times)
+	memcpy() (3 times)
+	CfgNew() (1 times)
+	NC_SystemOpen() (1 times)
+	res_mgr_init_pass() (1 times)
+	res_mgr_init_cppi() (1 times)
+	platform_write() (17 times)
+	res_mgr_init_qmss() (1 times)
+	platform_get_coreid() (2 times)
+	platform_write_configure() (1 times)
+	platform_uart_set_baudrate() (1 times)
+	platform_uart_init() (1 times)
+	platform_get_info() (1 times)
+	memset() (1 times)
+
+extern int main() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	ti_sysbios_BIOS_start__E() (1 times)
+	platform_write() (1 times)
+
+static char *strcpy() is called from 1 sites in this file.
+    It appears to be inlineable (size = 23 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+static unsigned strlen() is called from 5 sites in this file.
+    It appears to be inlineable (size = 15 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+Making unmodified global variable CONST:
+	extern char *DNSServer = "0.0.0.0";
+
+Making unmodified global variable CONST:
+	extern char *DomainName = "demo.net";
+
+Making unmodified global variable CONST:
+	extern char *GatewayIP = "192.168.2.101";
+
+Making unmodified global variable CONST:
+	extern char *LocalIPMask = "255.255.254.0";
+
+Making unmodified global variable CONST:
+	extern char *EVMStaticIP = "192.168.2.100";
+
+Making unmodified global variable CONST:
+	extern char *PCStaticIP = "192.168.2.101";
+
+Global variable is not referenced in this file:
+	extern char *LocalIPAddr
+	extern char *VerStr
+
+Address of global variable is never taken:
+	static unsigned fAddGroups$1
+
+	extern int pform_status
+	extern void *hCfg
+	extern char * const DNSServer
+	extern char * const DomainName
+	extern char * const GatewayIP
+	extern char * const LocalIPMask
+	extern char * const EVMStaticIP
+	extern char * const PCStaticIP
+
+Global variable is not modified in this file:
+	extern char * const DNSServer
+	extern char * const DomainName
+	extern char * const GatewayIP
+	extern char * const LocalIPMask
+	extern char * const EVMStaticIP
+	extern char * const PCStaticIP
+
+These functions may be recursive:
+	CheckDHCPOptions()
+	DHCP_reset()
+	EVM_init()
+	NetworkIPAddr()
+	ServiceReport()
+	hpdspuaStart()
+	main()
+Inlineable function will be suppressed: strcpy()
+Inlineable function will be suppressed: strlen()
+
+These external functions are called but not defined here:
+	memcpy()
+	memset()
+	ti_sysbios_BIOS_start__E()
+	platform_get_info()
+	platform_uart_init()
+	platform_uart_set_baudrate()
+	platform_write_configure()
+	platform_get_coreid()
+	res_mgr_init_qmss()
+	res_mgr_init_cppi()
+	res_mgr_init_pass()
+	NC_SystemOpen()
+	CfgNew()
+	platform_get_switch_state()
+	AddWebFiles()
+	NC_NetStart()
+	RemoveWebFiles()
+	CfgFree()
+	NC_SystemClose()
+	inet_addr()
+	TaskCreate()
+	platform_init()
+	platform_led()
+	platform_delay()
+	TaskSleep()
+	CfgGetEntry()
+	CfgEntryGetData()
+	CfgRemoveEntry()
+	mmZeroInit()
+	CfgAddEntry()
+	CfgEntryDeRef()
+	TaskExit()
+	platform_write()
+	CfgGetImmediate()
+	NtIPN2Str()
+
+Variable's value is constant in this file:
+    extern char * const DNSServer = "0.0.0.0";
+    extern char * const DomainName = "demo.net";
+    extern char * const GatewayIP = "192.168.2.101";
+    extern char * const LocalIPMask = "255.255.254.0";
+    extern char * const EVMStaticIP = "192.168.2.100";
+    extern char * const PCStaticIP = "192.168.2.101";
+
+		======= End file-level Analysis =======
+
+
+==============================================================================
+
+extern int main() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 0 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+extern int hpdspuaStart() is called from 0 sites in this file.
+    It has 4 non-trivial scope blocks nested 4 deep.
+    It calls these functions:
+	strlen() (5 times)
+	strcpy() (1 times)
+
+The following local variables in hpdspuaStart() will be grouped together
+to share stack space among distinct scoping blocks.  References
+in the source interlisting will look like "O$1.s3_1.l3_2" or "&$O$O1+0".
+
+    --offset--    --reference--			 --variable--
+
+          0	  O$1.s3_1.l3_2                  struct ci_route RT  [/home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/hpdspua.c:451]
+         16	  O$1.s3_1.l3_3                  struct ci_ipnet NA  [/home/gtbldadm/ti/mcsdk_2_01_02_06/demos/hua/src/hpdspua.c:450]
+
+
+There are 62 memory accesses with 45 dependences.
+
+
+==============================================================================
+
+static void ServiceReport() is called from 0 sites in this file.
+    It has 5 non-trivial scope blocks nested 4 deep.
+    It calls these functions:
+	<NONE>
+
+There are 9 memory accesses with 1 dependences.
+
+
+==============================================================================
+
+static void NetworkOpen() is called from 0 sites in this file.
+    It appears to be inlineable (size = 1 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 0 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+static void NetworkIPAddr() is called from 0 sites in this file.
+    It appears to be inlineable (size = 59 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 2 memory accesses with 1 dependences.
+
+
+==============================================================================
+
+static void NetworkClose() is called from 0 sites in this file.
+    It appears to be inlineable (size = 1 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 0 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+extern void EVM_init() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 7 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+extern void DHCP_reset() is called from 0 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 9 memory accesses with 6 dependences.
+
+
+==============================================================================
+
+extern void CheckDHCPOptions() is called from 0 sites in this file.
+    It appears to be inlineable (size = 81 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+There are 2 memory accesses with 0 dependences.
+
+<<NULL MIX DOMAIN>>
+
+== END OF INFO OUTPUT==

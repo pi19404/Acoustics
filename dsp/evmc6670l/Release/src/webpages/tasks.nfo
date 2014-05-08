@@ -1,0 +1,147 @@
+TMS320C6x C/C++ Optimizer               v7.4.0
+Build Number 1MGRS-0QTSRVUW-UARAR-SAW-ZAZG_X_U_Q
+
+		======File-level Analysis Summary======
+
+
+static void dumpTask() is called from 2 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	ti_sysbios_knl_Task_Handle_name() (1 times)
+	html_var() (1 times)
+	memcpy() (5 times)
+	sprintf() (1 times)
+	ti_sysbios_knl_Task_stat__E() (1 times)
+
+extern int serveTaskPage() is called from 0 sites in this file.
+    It appears to be inlineable (size = 78 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	html_getpage() (1 times)
+	httpSendClientStr() (1 times)
+	html_getsize() (1 times)
+	httpSendEntityLength() (1 times)
+	httpSendStatusLine() (1 times)
+	html_end() (1 times)
+	ti_sysbios_knl_Task_Object_next() (1 times)
+	ti_sysbios_knl_Task_Object_first() (1 times)
+	dumpTask() (2 times)
+	ti_sysbios_knl_Task_Object_get() (1 times)
+	html_var() (1 times)
+	html() (16 times)
+	html_start() (1 times)
+
+static char *strcpy() is called from 0 sites in this file.
+    It appears to be inlineable (size = 23 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+static char *ti_sysbios_knl_Task_Handle_name() is called from 1 sites in this file.
+    It appears to be inlineable (size = 7 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	ti_sysbios_knl_Task_Handle__label__S() (1 times)
+
+static struct i_sysbios_knl_Task_Object *ti_sysbios_knl_Task_Object_first() is called from 1 sites in this file.
+    It appears to be inlineable (size = 2 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	ti_sysbios_knl_Task_Object__first__S() (1 times)
+
+static struct i_sysbios_knl_Task_Object *ti_sysbios_knl_Task_Object_get() is called from 1 sites in this file.
+    It appears to be inlineable (size = 6 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	ti_sysbios_knl_Task_Object__get__S() (1 times)
+
+static struct i_sysbios_knl_Task_Object *ti_sysbios_knl_Task_Object_next() is called from 1 sites in this file.
+    It appears to be inlineable (size = 4 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	ti_sysbios_knl_Task_Object__next__S() (1 times)
+
+>>>> WARNING - Function strcpy() is not called and will not be compiled
+
+Variable has no explicitly assigned value:
+	extern const int ti_sysbios_knl_Task_Object__count__C
+
+Variable has no explicitly assigned value:
+	extern char *HDR
+
+Variable has no explicitly assigned value:
+	extern char *PAGEFOOTER
+
+Variable has no explicitly assigned value:
+	extern char *PAGEWRAPPER
+
+Variable has no explicitly assigned value:
+	extern char *PAGEHEAD
+
+Variable has no explicitly assigned value:
+	extern char *CONTENT_TYPE_HTML
+
+
+These functions may be recursive:
+	serveTaskPage()
+	ti_sysbios_knl_Task_Object_next()
+	ti_sysbios_knl_Task_Object_first()
+	dumpTask()
+	ti_sysbios_knl_Task_Handle_name()
+	ti_sysbios_knl_Task_Object_get()
+
+Function ti_sysbios_knl_Task_Object_get() will be specialized on these parameters:
+	[1] oarr == NULL;
+Inlineable function will be suppressed: ti_sysbios_knl_Task_Object_get()
+Inlineable function will be suppressed: ti_sysbios_knl_Task_Object_next()
+Inlineable function will be suppressed: ti_sysbios_knl_Task_Object_first()
+Inlineable function will be suppressed: ti_sysbios_knl_Task_Handle_name()
+
+These external functions are called but not defined here:
+	sprintf()
+	memcpy()
+	ti_sysbios_knl_Task_Object__next__S()
+	ti_sysbios_knl_Task_Object__get__S()
+	ti_sysbios_knl_Task_Object__first__S()
+	ti_sysbios_knl_Task_Handle__label__S()
+	html_start()
+	html()
+	html_end()
+	httpSendStatusLine()
+	httpSendEntityLength()
+	html_getsize()
+	httpSendClientStr()
+	html_getpage()
+	ti_sysbios_knl_Task_stat__E()
+	html_var()
+
+
+		======= End file-level Analysis =======
+
+
+==============================================================================
+
+static void dumpTask() is called from 2 sites in this file.
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	ti_sysbios_knl_Task_Handle_name() (1 times)
+
+There are 5 memory accesses with 0 dependences.
+
+
+==============================================================================
+
+extern int serveTaskPage() is called from 0 sites in this file.
+    It appears to be inlineable (size = 78 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	ti_sysbios_knl_Task_Object_get() (1 times)
+	dumpTask() (2 times)
+	ti_sysbios_knl_Task_Object_first() (1 times)
+	ti_sysbios_knl_Task_Object_next() (1 times)
+
+There are 6 memory accesses with 0 dependences.
+
+<<NULL MIX DOMAIN>>
+
+== END OF INFO OUTPUT==
