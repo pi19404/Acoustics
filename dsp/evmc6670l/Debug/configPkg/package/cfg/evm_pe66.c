@@ -2365,7 +2365,7 @@ __FAR__ const xdc_SizeT ti_sysbios_knl_Task_Module_State_terminatedQ__O = offset
  *  Define absolute path prefix for this executable's
  *  configuration generated files.
  */
-xdc__META(__ASM__, "@(#)__ASM__ = /media/software/hyd/hua/evmc6670l/Debug/configPkg/package/cfg/evm_pe66");
+xdc__META(__ASM__, "@(#)__ASM__ = /home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/Debug/configPkg/package/cfg/evm_pe66");
 
 /*
  *  ======== __ISA__ ========
@@ -3132,13 +3132,128 @@ Void ATTRIBUTE *realloc(Void *ptr, SizeT size)
 #include <xdc/runtime/System.h>
 #include <xdc/runtime/Types.h>
 
+/*
+ *  Local NDK Memory Buffer Pool Definitions
+ *  
+ *  The below variables/defines are used to allow the user's *.cfg settings to  
+ *  override the defaults that are set in the OSAL's mem_data.c file  
+ *  src/stack/os/mem_data.c 
+ *  
+ */
+#include <ti/ndk/inc/_oskern.h>
+
+/*
+ *  Total MAX Memory Allocation
+ *
+ *  These sizes may be overridden by defining _NDK_MIN_PAGE_SIZE.  If defined,
+ *  the values for RAW_PAGE_SIZE and RAW_PAGE_COUNT must be defined elsewhere.
+ */
+#ifndef _NDK_MIN_PAGE_SIZE
+#define RAW_PAGE_SIZE           3072
+#define RAW_PAGE_COUNT          16
+#endif
+
+const int ti_ndk_config_Global_rawPageSize  = RAW_PAGE_SIZE;
+const int ti_ndk_config_Global_rawPageCount = RAW_PAGE_COUNT;
+
+/* P.I.T. */
+#pragma DATA_SECTION(ti_ndk_config_Global_pit, ".far:NDK_MMBUFFER");
+PITENTRY ti_ndk_config_Global_pit[RAW_PAGE_COUNT];
+#pragma DATA_SECTION(ti_ndk_config_Global_pitBuffer, ".far:NDK_MMBUFFER");
+UINT8    ti_ndk_config_Global_pitBuffer[RAW_PAGE_SIZE*RAW_PAGE_COUNT];
+
+/*
+ *  Memory Bucket Information
+ */
+#define SMALLEST                48
+#define LARGEST                 (RAW_PAGE_SIZE)
+
+const int ti_ndk_config_Global_smallest = SMALLEST;
+const int ti_ndk_config_Global_largest  = LARGEST;
+
+/* Memory Slot Tracking */
+#pragma DATA_SECTION(ti_ndk_config_Global_Id2Size, ".far:NDK_MMBUFFER");
+uint ti_ndk_config_Global_Id2Size[]  =
+        {
+        SMALLEST,
+        96,
+        128,
+        256,
+        512,
+        1536,
+        LARGEST
+        };
+
+/*
+ * Local Packet Buffer Pool Definitions
+ *  
+ *  The below variables/defines are used to allow the user's *.cfg settings to  
+ *  override the defaults that are set in the Packet Buffer Manager (PBM) file  
+ *  src/stack/pbm/pbm_data.c 
+ *  
+ */
+
+/*
+ *  Number of buffers in PBM packet buffer free pool
+ *  
+ *  The number of buffers in the free pool can have a significant effect
+ *  on performance, especially in UDP packet loss. Increasing this number
+ *  will increase the size of the static packet pool use for both sending
+ *  and receiving packets.
+ *  
+ *  DM642 Users Note: The DM642 Ethernet driver assumes that its local
+ *  buffer allocation (EMAC_MAX_RX in dm642.c) plus PKT_NUM_FRAMEBUF
+ *  defined below is less than or equal to 256. The default value for
+ *  EMAC_MAX_RX in the DM642 Ethernet driver is 16.
+ *  
+ *  This size may be overridden by defining _NDK_MIN_PBM_BUFS.  If defined, the
+ *  value for PKT_NUM_FRAMEBUF must be defined elsewhere.
+ */  
+#ifndef _NDK_MIN_PBM_BUFS
+#define PKT_NUM_FRAMEBUF    192
+#endif
+
+/*
+ *  Max size buffer
+ *  
+ *  On L2 cached CPUs, this size must be cache-line multiple
+ *  The LogicIO Etherent (Macronix MAC) requires a larger buffer because
+ *  it transfers data in 16 byte chunks, and with its pre-pad and data
+ *  alignment, it will overflow a 1536 byte buffer.
+ *  
+ *  This size may be overridden by defining _NDK_MIN_PBM_BUFS.  If defined, the
+ *  value for PKT_SIZE_FRAMEBUF must also be defined elsewhere.
+ */  
+#ifndef _NDK_MIN_PBM_BUFS
+#define PKT_SIZE_FRAMEBUF   1536
+#endif
+
+const int ti_ndk_config_Global_numFrameBuf  = PKT_NUM_FRAMEBUF;
+const int ti_ndk_config_Global_sizeFrameBuf = PKT_SIZE_FRAMEBUF;
+
+/* Data space for packet buffers */
+#pragma DATA_ALIGN(ti_ndk_config_Global_pBufMem, 128);
+#pragma DATA_SECTION(ti_ndk_config_Global_pBufMem, ".far:NDK_PACKETMEM");
+UINT8 ti_ndk_config_Global_pBufMem[PKT_NUM_FRAMEBUF*PKT_SIZE_FRAMEBUF];
+
+#pragma DATA_ALIGN(ti_ndk_config_Global_pHdrMem, 128);
+#pragma DATA_SECTION(ti_ndk_config_Global_pHdrMem, ".far:NDK_PACKETMEM");
+UINT8 ti_ndk_config_Global_pHdrMem[PKT_NUM_FRAMEBUF*sizeof(PBM_Pkt)];
+
+/* Our NETCTRL callback functions */
+static void ti_ndk_config_Global_NetworkOpen();
+static void ti_ndk_config_Global_NetworkClose();
+static void ti_ndk_config_Global_NetworkIPAddr(IPN IPAddr, uint IfIdx, uint fAdd);
 
 extern void llTimerTick();
 
+char *ti_ndk_config_Global_HostName    = "tisoc";
 
 /* Main Thread */
 Void ti_ndk_config_Global_stackThread(UArg arg0, UArg arg1)
 {
+    int rc;
+    HANDLE hCfg;
 
     ti_sysbios_knl_Clock_Params clockParams;
 
@@ -3156,7 +3271,105 @@ if ((1 << DNUM) & (1)) {
     clockParams.period = 100;
     ti_sysbios_knl_Clock_create(&llTimerTick, clockParams.period, &clockParams, NULL);
 
+
+    /* THIS MUST BE THE ABSOLUTE FIRST THING DONE IN AN APPLICATION!! */
+    rc = NC_SystemOpen(NC_PRIORITY_LOW, NC_OPMODE_INTERRUPT);
+    if (rc) {
+        xdc_runtime_System_abort("NC_SystemOpen Failed (%d)\n");
+    }
+
+    /* Create and build the system configuration from scratch. */
+    hCfg = CfgNew();
+    if (!hCfg) {
+        printf("Unable to create configuration\n");
+        goto main_exit;
+    }
+
+    /* add the Ip module configuration settings. */
+    ti_ndk_config_ip_init(hCfg);
+
+    /*
+     *  Boot the system using this configuration
+     *
+     *  We keep booting until the function returns 0. This allows
+     *  us to have a "reboot" command.
+    */
+    do
+    {
+        rc = NC_NetStart(hCfg, ti_ndk_config_Global_NetworkOpen, 
+                         ti_ndk_config_Global_NetworkClose, 
+                         ti_ndk_config_Global_NetworkIPAddr);
+    } while( rc > 0 );
+
+    /* Delete Configuration */
+    CfgFree(hCfg);
+
+    /* Close the OS */
+main_exit:
+    NC_SystemClose();
+
 }  // end if ((1 << DNUM ...
+}
+
+/*
+ *  ti_ndk_config_Global_NetworkOpen
+ *
+ *  This function is called after the configuration has booted
+ */
+static void ti_ndk_config_Global_NetworkOpen()
+{
+}
+
+/*
+ *  ti_ndk_config_Global_NetworkClose
+ *
+ *  This function is called when the network is shutting down,
+ *  or when it no longer has any IP addresses assigned to it.
+ */
+static void ti_ndk_config_Global_NetworkClose()
+{
+}
+
+/*
+ *  ti_ndk_config_Global_NetworkIPAddr
+ *
+ *  This function is called whenever an IP address binding is
+ *  added or removed from the system.
+ */
+static void ti_ndk_config_Global_NetworkIPAddr(IPN IPAddr, uint IfIdx, uint fAdd)
+{
+    IPN IPTmp;
+
+    if (fAdd) {
+        printf("Network Added: ");
+    }
+    else {
+        printf("Network Removed: ");
+    }
+
+    // Print a message
+    IPTmp = ntohl(IPAddr);
+    printf("If-%d:%d.%d.%d.%d\n", IfIdx,
+            (UINT8)(IPTmp>>24)&0xFF, (UINT8)(IPTmp>>16)&0xFF,
+            (UINT8)(IPTmp>>8)&0xFF, (UINT8)IPTmp&0xFF);
+
+}
+
+/*
+ * Service Status Reports
+ *
+ * Function for reporting service status updates.
+ */
+static char *TaskName[]  = {"Telnet","HTTP","NAT","DHCPS","DHCPC","DNS"};
+static char *ReportStr[] = {"","Running","Updated","Complete","Fault"};
+static char *StatusStr[] = {"Disabled","Waiting","IPTerm","Failed","Enabled"};
+Void ti_ndk_config_Global_serviceReport(uint Item, uint Status,
+        uint Report, HANDLE h)
+{
+    printf("Service Status: %-9s: %-9s: %-9s: %03d\n",
+            TaskName[Item-1], StatusStr[Status],
+            ReportStr[Report/256], Report&0xFF);
+
 }
 
 
@@ -3164,6 +3377,35 @@ if ((1 << DNUM) & (1)) {
  * ======== ti.ndk.config.Ip TEMPLATE ========
  */
 
+#include <ti/ndk/inc/netmain.h>
+#include <ti/ndk/config/prototypes.h>
+
+Void ti_ndk_config_ip_init(HANDLE hCfg)
+{
+    /* Add our global hostname to hCfg (to be claimed in all connected domains) */
+    CfgAddEntry(hCfg, CFGTAG_SYSINFO, CFGITEM_DHCP_HOSTNAME, 0,
+                 strlen(ti_ndk_config_Global_HostName), 
+                 (UINT8 *)ti_ndk_config_Global_HostName, 0);
+
+    /* Use DHCP to obtain IP address on interface 1 */
+    {
+        CI_SERVICE_DHCPC dhcpc;
+        UINT8 DHCP_OPTIONS[] =
+                {
+                DHCPOPT_SUBNET_MASK,
+                };
+
+        /* Specify DHCP Service on IF specified by "IfIdx" */
+        bzero(&dhcpc, sizeof(dhcpc));
+        dhcpc.cisargs.Mode   = 1;
+        dhcpc.cisargs.IfIdx  = 1;
+        dhcpc.cisargs.pCbSrv = &ti_ndk_config_Global_serviceReport;
+        dhcpc.param.pOptions = DHCP_OPTIONS;
+        dhcpc.param.len = 1;
+        CfgAddEntry(hCfg, CFGTAG_SERVICE, CFGITEM_SERVICE_DHCPCLIENT, 0,
+                sizeof(dhcpc), (UINT8 *)&dhcpc, 0);
+    }
+}
 
 /*
  * ======== ti.sysbios.hal.Hwi TEMPLATE ========
@@ -6695,8 +6937,8 @@ ti_sysbios_timers_timer64_Timer_Object__ ti_sysbios_timers_timer64_Timer_Object_
         (xdc_UInt)0x0,  /* emumgtInit */
         (xdc_UInt)0x0,  /* gpioIntEn */
         (xdc_UInt)0x0,  /* gpioDatDir */
-        ti_sysbios_interfaces_ITimer_RunMode_CONTINUOUS,  /* runMode */
-        ti_sysbios_interfaces_ITimer_StartMode_AUTO,  /* startMode */
+        ti_sysbios_interfaces_ITimer_RunMode_ONESHOT,  /* runMode */
+        ti_sysbios_interfaces_ITimer_StartMode_USER,  /* startMode */
         (xdc_UInt)0x1e8480,  /* period */
         ti_sysbios_interfaces_ITimer_PeriodType_MICROSECS,  /* periodType */
         (xdc_UInt)0x0,  /* prescalar */

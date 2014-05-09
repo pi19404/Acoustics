@@ -138,8 +138,8 @@ clean:
 	-@echo ' '
 
 post-build:
-	-@echo 'a123'
-	-/bin/mad_tools.ksh
+	-@echo 'mad tools TFTP copy'
+	-/usr/bin/mad_tools.ksh
 	-@echo ' '
 
 .PHONY: all clean dependents

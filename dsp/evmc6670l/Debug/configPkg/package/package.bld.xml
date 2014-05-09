@@ -7,7 +7,7 @@
         <srcFile name="package/cfg/evm_pe66.c"/>
     </sources>
     <configscripts>
-        <srcFile name="/media/software/hyd/hua/evmc6670l/evm.cfg"/>
+        <srcFile name="/home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/evm.cfg"/>
     </configscripts>
     <makefiles>
         <srcFile name="package.mak" src="package.bld"/>
@@ -43,7 +43,7 @@
         isPartial="false"
         xCfgScript="package/cfg/evm_pe66.cfg"
         xCfgPrefix="package/cfg/evm_pe66"
-        cfgScript="/media/software/hyd/hua/evmc6670l/evm.cfg"
+        cfgScript="/home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/evm.cfg"
         cfgArgs="null"
         />
     </configurations>
@@ -55,7 +55,7 @@
         profile="debug"
         xCfgScript="package/cfg/evm_pe66.cfg"
         xCfgPrefix="package/cfg/evm_pe66"
-        cfgScript="/media/software/hyd/hua/evmc6670l/evm.cfg"
+        cfgScript="/home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/evm.cfg"
         cfgArgs="null"
         />
     </executables>

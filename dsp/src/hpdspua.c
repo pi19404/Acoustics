@@ -1,5 +1,5 @@
 #include "common.h"
-
+#include "/opt/ti/bios_6_34_02_18/packages/ti/sysbios/hal/Timer.h"
 
 /* Version String */
 char *VerStr = BLM_VERSION;
@@ -9,7 +9,7 @@ char *VerStr = BLM_VERSION;
 ***************************************************************************/
 
 void acquire_data();
-void compute_data();
+
 void dis_data();
 SOCKET   stcp = INVALID_SOCKET;
 
@@ -81,7 +81,7 @@ long long elapsed_time;
 
 void compute_time_diff();
 void acquire_data();
-void compute_data();
+
 
 #define LOG_COUNT 5
 #define MAX_SAMPLES 300
@@ -272,18 +272,10 @@ void nullsrv()
         int n=0;
        IMG_STORE_REQST_TYP a;
             a.number=PULSE_SAMPLE*sizeof(int);
-            int *data;//(int *)malloc(sizeof(int)*a.number+1);
-            //int *data1=(int *)malloc(sizeof(int)*a.number+1);
-            int *orig=data;
-           //int *orig2=data1;
-           int i1;
+            int *data;
            for(;;)
            {
-
                    acquire_data();
-                   compute_data();
-                   //dis_data();
-
                    for(k=0;k<2;k++)
                    {
                     if(k==0)
@@ -719,10 +711,11 @@ int hpdspuaStart (void) {
 	 return 0;
 }
 
+volatile int timer_flag=0;
 void ADCInterrupt(UArg arg)
 {
 
-
+	timer_flag=1;
 }
 
 void hwiGPIOnFunc(UArg arg)
@@ -739,76 +732,22 @@ void hwiGPIOnFunc(UArg arg)
 }
 
 
-void compute_time_diff()
-{
-//	if(FILTER_SAMPLE_A>200 && FILTER_SAMPLE_B>200)  //To avoid very low counts which means not properly sampled
-//	{
-	//Initialise data buffer indices
-	unsigned int filter_index, overall_index, max_index=0 , max_product=0;
-
-	//Compute t start for signal A
-	for(overall_index=0; overall_index<PULSE_SAMPLE-FILTER_SAMPLE; overall_index++)
-	{
-		product_result=0;
-
-		for (filter_index=overall_index;filter_index<(overall_index+FILTER_SAMPLE);filter_index++) //compute for FILTER_SAMPLE_A samples
-			product_result=product_result+data_bufferA[filter_index];  // filer[i] = 1 for all i
-
-		if(product_result>max_product)
-		{
-			max_product=product_result;
-			max_index=overall_index;
-		}
-	}
-
-	platform_write("\nMax Product A: %d",max_product);
-	platform_write("\nMax index for A: %d",max_index);
-	signalA_tstart = max_index;
-
-	max_index = 0;
-	max_product = 0;
-
-	//Compute t start for signal B
-	for(overall_index=0; overall_index<PULSE_SAMPLE-FILTER_SAMPLE; overall_index++)
-	{
-		product_result=0;
-
-		for (filter_index=overall_index;filter_index<(overall_index+FILTER_SAMPLE);filter_index++) //compute for FILTER_SAMPLE_B samples
-			product_result=product_result+data_bufferB[filter_index];  // filer[i] = 1 for all i
-
-		if(product_result>max_product)
-		{
-			max_product=product_result;
-			max_index=overall_index;
-		}
-	}
-
-	platform_write("\nMax Product B: %d",max_product);
-	platform_write("\nMax index for B: %d",max_index);
-	signalB_tstart = max_index;
-
-	//Calculate time difference and heading angle
-    if(abs(signalB_tstart-signalA_tstart)<MAX_SAMPLES)
-    {
-    	time_diff = (signalB_tstart-signalA_tstart)/(float)SAMPLING_FREQUENCY;  //Time diff in us
-    	cos_theta = (time_diff*sound_speed)/distance;
-    	angle = acos(cos_theta);
-    	platform_write("\nTime difference: %lf micro seconds",(time_diff)*1000000);
-    	platform_write("\nAngle (in degrees): %lf\n\n",(angle*180)/PI);
-    }
-
-//	FILTER_SAMPLE_A=FILTER_SAMPLE_B=0;
-}
 
 
-
+extern Timer_Handle timer1;
 
 void acquire_data()
 {
 	//GPIO_3-CNVST,  GPIO_13-CS
 	//Start the ADC communication
-	for(data_index=0; data_index<PULSE_SAMPLE; data_index++)
+	timer_flag=0;
+	Timer_start(timer1);
+	data_index=0;
+	int cnt=0;
+	for(;;)
 	{
+		if(timer_flag==1)
+			break;
 		//Pull CNVST low
 		//platform_write("eeee");
 		gpioClearOutput(GPIO_3);
@@ -842,72 +781,33 @@ void acquire_data()
 
 				if(i<14)
 				data_bufferA[data_index]=(data_bufferA[data_index]<<1)+data_bit;
-				if(i<28)
+				if(i<28 && i >=14)
 			    data_bufferB[data_index]=(data_bufferB[data_index]<<1)+data_bit;
 
 				gpioSetOutput(GPIO_7);
-				//platform_write("GGGG");
+
 				interrupt_call_count=0;
+				if(i==27)
+				{
+					if(data_bufferB[data_index]>NEGATIVE_VALUE_MARGIN)                //Means negative value
+						data_bufferB[data_index] = data_bufferB[data_index]-FULL_SCALE_VALUE;  //Invert the value
+				}
+				if(i==13)
+				{
+					if(data_bufferA[data_index]>NEGATIVE_VALUE_MARGIN)                //Means negative value
+						data_bufferA[data_index] = data_bufferB[data_index]-FULL_SCALE_VALUE;  //Invert the value
+
+				}
 		}
 		//Release CS pin
 		gpioSetOutput(GPIO_13);
+		cnt++;
+		data_index=data_index+1;
+		data_index=data_index%PULSE_SAMPLE;
 	}
+	platform_write("Total number of samples are %d",cnt);
+
 }
 
 
 
-void compute_data()
-{
-	int sig_start_A,sig_start_B,flag_A=1,flag_B=1;
-	for(i=0; i<PULSE_SAMPLE; i++)
-	{
-		for(j=0,sumA=0; j<14; j++)
-			sumA = sumA + pow(2,j)*data_buffer[28*i+13-j];
-
-		if(sumA>NEGATIVE_VALUE_MARGIN)                //Means negative value
-			data_bufferA[i] = sumA-FULL_SCALE_VALUE;  //Invert the value
-		else
-			data_bufferA[i] = sumA;
-
-		for(j=14,sumB=0; j<28; j++)
-			sumB = sumB + pow(2,j-14)*data_buffer[28*i+27+14-j];
-
-		if(sumB>NEGATIVE_VALUE_MARGIN)                //Means negative value
-			data_bufferB[i] = sumB-FULL_SCALE_VALUE;  //Invert the value
-		else
-			data_bufferB[i] = sumB;
-
-//		if(data_bufferA[i]>THRESHOLD_VALUE)
-//			FILTER_SAMPLE_A++;
-
-//		if(data_bufferB[i]>THRESHOLD_VALUE)
-//			FILTER_SAMPLE_B++;
-//		if(data_bufferA[i]>100 && data_bufferB[i]>500)
-		//platform_write("\ndata buffer A=%d, data buffer B=%d",data_bufferA[i],data_bufferB[i]);
-/*		if((data_bufferA[i]>THRESHOLD_VALUE) && flag_A==1)
-		{
-			sig_start_A = i;
-			flag_A=0;
-		}
-		if((data_bufferB[i]>THRESHOLD_VALUE) && flag_B==1)
-		{
-			sig_start_B = i;
-			flag_B=0;
-		}
-	}
-	if(abs(sig_start_B-sig_start_A)<100)
-	{
-		platform_write("\nsig_start_A=%d, sig_start_B=%d",sig_start_A,sig_start_B);
-		time_diff = (sig_start_B-sig_start_A)/(float)SAMPLING_FREQUENCY;  //Time diff in us
-	    cos_theta = (time_diff*sound_speed)/distance;
-	    angle = acos(cos_theta);
-	    platform_write("\nTime difference: %lf micro seconds",(time_diff)*1000000);
-	    platform_write("\nAngle (in degrees): %lf\n\n",(angle*180)/PI);
-	}
-*/}
-/*	for(i=0; i<2*14*PULSE_SAMPLE; i++)
-	{
-		platform_write("\nBit = %d", data_buffer[i]);
-	}*/
-
-}

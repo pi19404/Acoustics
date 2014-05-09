@@ -9,7 +9,7 @@
  */
 
 
--l"/media/software/hyd/hua/evmc6670l/Debug/configPkg/package/cfg/evm_pe66.oe66"
+-l"/home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/Debug/configPkg/package/cfg/evm_pe66.oe66"
 -l"/media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/transport/ndk/nimu/lib/debug/ti.transport.ndk.nimu.ae66"
 -l"/media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/platform/evmc6670l/platform_lib/lib/debug/ti.platform.evm6670l.ae66"
 -l"/media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/drv/pa/lib/ti.drv.pa.ae66"
@@ -25,10 +25,10 @@
 -l"/media/software/CCS/ndk_2_21_01_38/packages/ti/ndk/tools/cgi/lib/cgi.ae66"
 -l"/media/software/CCS/ndk_2_21_01_38/packages/ti/ndk/tools/hdlc/lib/hdlc.ae66"
 -l"/media/software/CCS/ndk_2_21_01_38/packages/ti/ndk/tools/console/lib/console_min.ae66"
--l"/media/software/CCS/ndk_2_21_01_38/packages/ti/ndk/netctrl/lib/netctrl.ae66"
+-l"/media/software/CCS/ndk_2_21_01_38/packages/ti/ndk/netctrl/lib/netctrl_min.ae66"
 -l"/media/software/CCS/ndk_2_21_01_38/packages/ti/ndk/nettools/lib/nettool.ae66"
 -l"/media/software/CCS/ndk_2_21_01_38/packages/ti/ndk/tools/servers/lib/servers_min.ae66"
--l"/media/software/CCS/ndk_2_21_01_38/packages/ti/ndk/stack/lib/stk6_ppp_pppoe.ae66"
+-l"/media/software/CCS/ndk_2_21_01_38/packages/ti/ndk/stack/lib/stk6.ae66"
 -l"/media/software/CCS/bios_6_34_02_18/packages/ti/sysbios/lib/sysbios/instrumented/sysbios.ae66"
 -l"/media/software/CCS/xdctools_3_23_04_60/packages/ti/targets/rts6000/lib/ti.targets.rts6000.ae66"
 -l"/media/software/CCS/xdctools_3_23_04_60/packages/ti/targets/rts6000/lib/boot.ae66"

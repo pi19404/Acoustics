@@ -1,13 +1,13 @@
 XDC_open() {
-    GEL_ProjectLoad("/media/software/hyd/hua/evmc6670l/Debug/configPkg/package/configPkg.pjt");
-    GEL_ProjectLoad("/media/software/hyd/hua/evmc6670l/Debug/configPkg/package/cfg/evm_xe66.pjt");
-    GEL_ProjectSetActive("/media/software/hyd/hua/evmc6670l/Debug/configPkg/package/cfg/evm_xe66.pjt");
+    GEL_ProjectLoad("/home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/Debug/configPkg/package/configPkg.pjt");
+    GEL_ProjectLoad("/home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/Debug/configPkg/package/cfg/evm_xe66.pjt");
+    GEL_ProjectSetActive("/home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/Debug/configPkg/package/cfg/evm_xe66.pjt");
 }
 XDC_close() {
-    GEL_ProjectClose("/media/software/hyd/hua/evmc6670l/Debug/configPkg/package/configPkg.pjt");
-    GEL_ProjectClose("/media/software/hyd/hua/evmc6670l/Debug/configPkg/package/cfg/evm_xe66.pjt");
+    GEL_ProjectClose("/home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/Debug/configPkg/package/configPkg.pjt");
+    GEL_ProjectClose("/home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/Debug/configPkg/package/cfg/evm_xe66.pjt");
 }
 menuitem "XDC Package"
-hotmenu load_executable () { GEL_Load("/media/software/hyd/hua/evmc6670l/Debug/configPkg/evm.xe66"); }
+hotmenu load_executable () { GEL_Load("/home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/Debug/configPkg/evm.xe66"); }
 hotmenu open_project () { XDC_open(); }
 hotmenu close_project () { XDC_close(); }

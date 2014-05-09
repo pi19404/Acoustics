@@ -8,9 +8,9 @@ Tool="CustomBuilder"
 Config="Executable"
 
 [Project Dependencies]
-Source="/media/software/hyd/hua/evmc6670l/Debug/configPkg/package/configPkg.pjt"
+Source="/home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/Debug/configPkg/package/configPkg.pjt"
 
-["/media/software/hyd/hua/evmc6670l/Debug/configPkg/package/configPkg.pjt" Settings]
+["/home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/Debug/configPkg/package/configPkg.pjt" Settings]
 ExcludeFromBuild=true
 
 
@@ -20,7 +20,7 @@ ExcludeFromBuild=true
 ;  directories.
 ;
 ["Compiler" Settings: "Executable"]
-Options=-i"/media/software/hyd/hua" -i"/media/software/CCS/ndk_2_21_01_38/packages" -i"/media/software/CCS/pdk_C6670_1_1_2_6/packages" -i"/media/software/CCS/mcsdk_2_01_02_06/demos" -i"/media/software/CCS/ccsv5/ccs_base" -i"/media/software/CCS/dsplib_c66x_3_1_0_0/packages" -i"/media/software/CCS/edma3_lld_02_11_05_02/packages" -i"/media/software/CCS/imglib_c66x_3_1_1_0/packages" -i"/media/software/CCS/ipc_1_25_00_04/packages" -i"/media/software/CCS/mathlib_c66x_3_0_1_1/packages" -i"/media/software/CCS/openem_1_0_0_2/packages" -i"/media/software/CCS/omp_1_01_03_02/packages" -i"/media/software/CCS/bios_6_34_02_18/packages" -i"/media/software/CCS/xdctools_3_23_04_60/packages" -i"/media/software/hyd/hua/evmc6670l/Debug" 
+Options=-i"/home/pi19404/catkin_ws/src/Acoustics/dsp" -i"/media/software/CCS/ndk_2_21_01_38/packages" -i"/media/software/CCS/pdk_C6670_1_1_2_6/packages" -i"/media/software/CCS/mcsdk_2_01_02_06/demos" -i"/media/software/CCS/ccsv5/ccs_base" -i"/media/software/CCS/dsplib_c66x_3_1_0_0/packages" -i"/media/software/CCS/edma3_lld_02_11_05_02/packages" -i"/media/software/CCS/imglib_c66x_3_1_1_0/packages" -i"/media/software/CCS/ipc_1_25_00_04/packages" -i"/media/software/CCS/mathlib_c66x_3_0_1_1/packages" -i"/media/software/CCS/openem_1_0_0_2/packages" -i"/media/software/CCS/omp_1_01_03_02/packages" -i"/media/software/CCS/bios_6_34_02_18/packages" -i"/media/software/CCS/xdctools_3_23_04_60/packages" -i"/home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/Debug" 
 
 [External Makefile]
 ExtMakefile=../../package.bld
@@ -32,7 +32,7 @@ ExtMakefile=../../package.bld
 [Source Files]
 Source="../../package.bld"
 Source="evm_xe66.c"
-Source="../..//media/software/hyd/hua/evmc6670l/evm.cfg"
+Source="../..//home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/evm.cfg"
 
 ["../../package.bld" Settings: "Executable"]
 UseCustomBuild=true
@@ -66,5 +66,5 @@ Run=Always
 ["evm_xe66.c" Settings: "Executable"]
 ExcludeFromBuild=true
 
-["../..//media/software/hyd/hua/evmc6670l/evm.cfg" Settings: "Executable"]
+["../..//home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/evm.cfg" Settings: "Executable"]
 ExcludeFromBuild=true

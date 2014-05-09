@@ -1,1 +1,1 @@
--l"./configPkg/linker.cmd" "./src/system/resourcemgr.obj" "./src/system/platform_osal.obj" "./src/tpool.obj" "./src/hpdspua.obj" -l"ti.platform.evm6670l.ae66" -l"ti.transport.ndk.nimu.ae66" -l"libc.a" 
+-l"./configPkg/linker.cmd" "./src/system/resourcemgr.obj" "./src/system/platform_osal.obj" "./src/tpool.obj" "./src/logger.obj" "./src/hpdspua.obj" -l"ti.platform.evm6670l.ae66" -l"ti.transport.ndk.nimu.ae66" -l"libc.a" 

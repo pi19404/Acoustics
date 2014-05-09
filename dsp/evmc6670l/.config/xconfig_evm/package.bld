@@ -11,7 +11,7 @@ var makeAssembly = false;
 var Executable = xdc.module('xdc.bld.Executable');
 
 var exeOpts = new Executable.Attrs({
-        cfgScript: '/media/software/hyd/hua/evmc6670l/evm.cfg',
+        cfgScript: '/home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/evm.cfg',
         profile: 'release',
         cfgHome: 'xconfig_evm',
 });
@@ -47,8 +47,8 @@ else {
 }
 
 var thisObj = {
-    cfg:        '/media/software/hyd/hua/evmc6670l/evm.cfg',
-    outputPath: '/media/software/hyd/hua/evmc6670l/.config/xconfig_evm',
+    cfg:        '/home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/evm.cfg',
+    outputPath: '/home/pi19404/catkin_ws/src/Acoustics/dsp/evmc6670l/.config/xconfig_evm',
     exeName:    'evm' + suffix,
     exeIntName: 'evm' + suffix.replace('.', '_'),
     targ:       targ,

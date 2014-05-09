@@ -1,10 +1,10 @@
 # FIXED
 
-src/logger.obj: /media/software/hyd/hua/src/logger.c
-src/logger.obj: /media/software/hyd/hua/src/logger.h
+src/logger.obj: /home/pi19404/catkin_ws/src/Acoustics/dsp/src/logger.c
+src/logger.obj: /home/pi19404/catkin_ws/src/Acoustics/dsp/src/logger.h
 src/logger.obj: /media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/platform/platform.h
 src/logger.obj: /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/stdint.h
-src/logger.obj: /media/software/hyd/hua/src/common.h
+src/logger.obj: /home/pi19404/catkin_ws/src/Acoustics/dsp/src/common.h
 src/logger.obj: /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/stdio.h
 src/logger.obj: /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/linkage.h
 src/logger.obj: /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/stdarg.h
@@ -329,11 +329,11 @@ src/logger.obj: /media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/csl/csl_xmc.h
 src/logger.obj: /media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/csl/cslr_xmc.h
 src/logger.obj: /media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/platform/evmc6670l/platform_lib/include/evmc66x_pllc.h
 
-/media/software/hyd/hua/src/logger.c: 
-/media/software/hyd/hua/src/logger.h: 
+/home/pi19404/catkin_ws/src/Acoustics/dsp/src/logger.c: 
+/home/pi19404/catkin_ws/src/Acoustics/dsp/src/logger.h: 
 /media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/platform/platform.h: 
 /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/stdint.h: 
-/media/software/hyd/hua/src/common.h: 
+/home/pi19404/catkin_ws/src/Acoustics/dsp/src/common.h: 
 /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/stdio.h: 
 /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/linkage.h: 
 /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/stdarg.h: 

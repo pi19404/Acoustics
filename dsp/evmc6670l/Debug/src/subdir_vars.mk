@@ -4,11 +4,11 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-/media/software/hyd/hua/src/tpool.cpp 
+/home/pi19404/catkin_ws/src/Acoustics/dsp/src/tpool.cpp 
 
 C_SRCS += \
-/media/software/hyd/hua/src/hpdspua.c \
-/media/software/hyd/hua/src/logger.c 
+/home/pi19404/catkin_ws/src/Acoustics/dsp/src/hpdspua.c \
+/home/pi19404/catkin_ws/src/Acoustics/dsp/src/logger.c 
 
 OBJS += \
 ./src/hpdspua.obj \
@@ -35,10 +35,10 @@ OBJS__QUOTED += \
 "src/tpool.obj" 
 
 C_SRCS__QUOTED += \
-"/media/software/hyd/hua/src/hpdspua.c" \
-"/media/software/hyd/hua/src/logger.c" 
+"/home/pi19404/catkin_ws/src/Acoustics/dsp/src/hpdspua.c" \
+"/home/pi19404/catkin_ws/src/Acoustics/dsp/src/logger.c" 
 
 CPP_SRCS__QUOTED += \
-"/media/software/hyd/hua/src/tpool.cpp" 
+"/home/pi19404/catkin_ws/src/Acoustics/dsp/src/tpool.cpp" 
 
 

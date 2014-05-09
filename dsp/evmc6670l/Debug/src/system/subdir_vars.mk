@@ -4,8 +4,8 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-/media/software/hyd/hua/src/system/platform_osal.c \
-/media/software/hyd/hua/src/system/resourcemgr.c 
+/home/pi19404/catkin_ws/src/Acoustics/dsp/src/system/platform_osal.c \
+/home/pi19404/catkin_ws/src/Acoustics/dsp/src/system/resourcemgr.c 
 
 OBJS += \
 ./src/system/platform_osal.obj \
@@ -24,7 +24,7 @@ OBJS__QUOTED += \
 "src/system/resourcemgr.obj" 
 
 C_SRCS__QUOTED += \
-"/media/software/hyd/hua/src/system/platform_osal.c" \
-"/media/software/hyd/hua/src/system/resourcemgr.c" 
+"/home/pi19404/catkin_ws/src/Acoustics/dsp/src/system/platform_osal.c" \
+"/home/pi19404/catkin_ws/src/Acoustics/dsp/src/system/resourcemgr.c" 
 
 

@@ -9,6 +9,7 @@ $(GEN_CMDS__FLAG) \
 "./src/system/resourcemgr.obj" \
 "./src/system/platform_osal.obj" \
 "./src/tpool.obj" \
+"./src/logger.obj" \
 "./src/hpdspua.obj" \
 -l"ti.platform.evm6670l.ae66" \
 -l"ti.transport.ndk.nimu.ae66" \
@@ -130,8 +131,8 @@ clean:
 	-$(RM) $(GEN_SRCS__QUOTED)$(GEN_MISC_FILES__QUOTED)$(C6000_EXECUTABLE_OUTPUTS__QUOTED)$(GEN_OPTS__QUOTED)$(GEN_CMDS__QUOTED) "hua_evmc6670l.out"
 	-$(RM) "src/tpool.pp" 
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
-	-$(RM) "src/hpdspua.pp" "src/system/platform_osal.pp" "src/system/resourcemgr.pp" 
-	-$(RM) "src/hpdspua.obj" "src/tpool.obj" "src/system/platform_osal.obj" "src/system/resourcemgr.obj" 
+	-$(RM) "src/hpdspua.pp" "src/logger.pp" "src/system/platform_osal.pp" "src/system/resourcemgr.pp" 
+	-$(RM) "src/hpdspua.obj" "src/logger.obj" "src/tpool.obj" "src/system/platform_osal.obj" "src/system/resourcemgr.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

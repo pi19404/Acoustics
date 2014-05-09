@@ -1,6 +1,6 @@
 # FIXED
 
-src/system/platform_osal.obj: /media/software/hyd/hua/src/system/platform_osal.c
+src/system/platform_osal.obj: /home/pi19404/catkin_ws/src/Acoustics/dsp/src/system/platform_osal.c
 src/system/platform_osal.obj: /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/stdio.h
 src/system/platform_osal.obj: /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/linkage.h
 src/system/platform_osal.obj: /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/stdarg.h
@@ -267,7 +267,7 @@ src/system/platform_osal.obj: /media/software/CCS/xdctools_3_23_04_60/packages/x
 src/system/platform_osal.obj: /media/software/CCS/xdctools_3_23_04_60/packages/xdc/runtime/IGateProvider.h
 src/system/platform_osal.obj: /media/software/CCS/bios_6_34_02_18/packages/ti/sysbios/heaps/package/HeapMem_Module_GateProxy.h
 
-/media/software/hyd/hua/src/system/platform_osal.c: 
+/home/pi19404/catkin_ws/src/Acoustics/dsp/src/system/platform_osal.c: 
 /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/stdio.h: 
 /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/linkage.h: 
 /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/stdarg.h: 

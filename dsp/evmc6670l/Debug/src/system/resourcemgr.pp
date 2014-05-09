@@ -1,6 +1,6 @@
 # FIXED
 
-src/system/resourcemgr.obj: /media/software/hyd/hua/src/system/resourcemgr.c
+src/system/resourcemgr.obj: /home/pi19404/catkin_ws/src/Acoustics/dsp/src/system/resourcemgr.c
 src/system/resourcemgr.obj: /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/stdio.h
 src/system/resourcemgr.obj: /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/linkage.h
 src/system/resourcemgr.obj: /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/stdarg.h
@@ -88,7 +88,7 @@ src/system/resourcemgr.obj: /media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/dr
 src/system/resourcemgr.obj: /media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/drv/cppi/cppi_types.h
 src/system/resourcemgr.obj: /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/stdlib.h
 
-/media/software/hyd/hua/src/system/resourcemgr.c: 
+/home/pi19404/catkin_ws/src/Acoustics/dsp/src/system/resourcemgr.c: 
 /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/stdio.h: 
 /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/linkage.h: 
 /media/software/CCS/ccsv5/tools/compiler/c6000_7.4.1/include/stdarg.h: 
