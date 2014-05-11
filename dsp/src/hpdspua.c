@@ -18,7 +18,7 @@ char *VerStr = BLM_VERSION;
 ***************************************************************************/
 
 float acquire_data();
-extern Timer_Handle timer1;
+//extern Timer_Handle timer1;
 
 SOCKET   stcp = INVALID_SOCKET;
 
@@ -311,7 +311,7 @@ void nullsrv()
         	   	   a.fps=acquire_data();
         	   	   a.number=min((int)a.fps*sizeof(int),PULSE_SAMPLE*sizeof(int));
         	   	   //time2=Clock_getTicks();
-        	   	   platform_write("time taken for acquire data is %lu \n",(unsigned long)(time2-time1));
+        	   	   ///platform_write("time taken for acquire data is %lu \n",(unsigned long)(time2-time1));
         	   	   //time1=Clock_getTicks();
                    for(k=0;k<2;k++)
                    {
@@ -777,21 +777,21 @@ float acquire_data()
 	//GPIO_3-CNVST,  GPIO_13-CS
 	//Start the ADC communication
 	timer_flag=0;
-	Timer_start(timer1);
+	//Timer_start(timer1);
 	platform_write("stated timer \n");
 	data_index=0;
 	int cnt=0;
-	unsigned int tscl_val, tsch_val;
-	long long elapsed_time;
+	long int tscl_val, tsch_val;
+	long int tscl_val1, tsch_val1;
+	float elapsed_time=0;
 
-	tscl_val = TSCL;
 
 	for(;;)
 	{
-		tsch_val = TSCH;
-		elapsed_time -= _itoll(tsch_val, tscl_val);
-		if(-elapsed_time/DSP_clockcycles_persec >=2)
-			break;
+		TSCL = 0;
+		TSCH = 0;
+		tscl_val = TSCL;
+		//tsch_val = TSCH;
 
 		/*if(timer_flag==1)
 		{
@@ -856,11 +856,18 @@ float acquire_data()
 		cnt++;
 		data_index=data_index+1;
 		data_index=data_index%PULSE_SAMPLE;
+		tscl_val1 = TSCL;
+		elapsed_time += ((float)(tscl_val1-tscl_val)/(float)DSP_clockcycles_persec);//_itoll(tsch_val, tscl_val);
+
+		if(elapsed_time >=2 )
+			break;
+		//platform_write("elapsed time for sample is %d ",elapsed_time);
+
 	//	if(data_index==0)
 		//	break;
 
 	}
-	platform_write("Total number of samples are %d \n",cnt);
+	platform_write("Total number of samples are %d,%f \n",cnt,elapsed_time);
 	return cnt;
 }
 
