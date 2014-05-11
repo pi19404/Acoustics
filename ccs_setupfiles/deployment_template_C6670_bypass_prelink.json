@@ -1,0 +1,27 @@
+{
+	"deviceName" : "C6670",
+	
+	"partitions" : [
+		{
+			"name"			: "load-partition",
+			"vaddr"			: "0x9e000000",
+			"size"			: "0x2000000",
+			"loadPartition" : true 
+		}
+	],
+	
+	"applications" : [
+		{
+			"name"			 : "app1",
+			"fileName"       : "/home/auv/catkin_ws/src/Acoustics/dsp/evmc6670l/Debug/hua_evmc6670l.out",
+			"allowedCores"   : [0,1,2,3]
+		}
+	],
+	
+	"appDeployment" : [
+		"app1",
+		"app1",
+		"app1",
+		"app1"
+	]
+}
