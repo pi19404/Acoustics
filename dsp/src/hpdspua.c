@@ -770,7 +770,7 @@ void hwiGPIOnFunc(UArg arg)
 
 
 
-
+#define DSP_clockcycles_persec 1474600000
 
 float acquire_data()
 {
@@ -781,15 +781,24 @@ float acquire_data()
 	platform_write("stated timer \n");
 	data_index=0;
 	int cnt=0;
+	unsigned int tscl_val, tsch_val;
+	long long elapsed_time;
+
+	tscl_val = TSCL;
+
 	for(;;)
 	{
-		//
-		if(timer_flag==1)
+		tsch_val = TSCH;
+		elapsed_time -= _itoll(tsch_val, tscl_val);
+		if(-elapsed_time/DSP_clockcycles_persec >=2)
+			break;
+
+		/*if(timer_flag==1)
 		{
 			platform_write("processing sample %d \n",cnt);
 			timer_flag=0;
 			break;
-		}
+		}*/
 
 		//Pull CNVST low
 		//platform_write("eeee");
