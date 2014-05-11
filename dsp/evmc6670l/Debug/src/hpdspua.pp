@@ -340,6 +340,12 @@ src/hpdspua.obj: /media/software/CCS/xdctools_3_23_04_60/packages/xdc/runtime/Ty
 src/hpdspua.obj: /media/software/CCS/xdctools_3_23_04_60/packages/xdc/runtime/IInstance.h
 src/hpdspua.obj: /media/software/CCS/bios_6_34_02_18/packages/ti/sysbios/interfaces/ITimer.h
 src/hpdspua.obj: /media/software/CCS/bios_6_34_02_18/packages/ti/sysbios/hal/package/Timer_TimerProxy.h
+src/hpdspua.obj: /media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/csl/csl_tmr.h
+src/hpdspua.obj: /media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/csl/cslr_tmr.h
+src/hpdspua.obj: /media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/csl/csl_tmrAux.h
+src/hpdspua.obj: /media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/csl/src/intc/csl_intc.h
+src/hpdspua.obj: /media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/csl/src/intc/cslr_intc.h
+src/hpdspua.obj: /media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/csl/src/intc/csl_intcAux.h
 
 /home/pi19404/catkin_ws/src/Acoustics/dsp/src/hpdspua.c: 
 /home/pi19404/catkin_ws/src/Acoustics/dsp/src/common.h: 
@@ -681,3 +687,9 @@ src/hpdspua.obj: /media/software/CCS/bios_6_34_02_18/packages/ti/sysbios/hal/pac
 /media/software/CCS/xdctools_3_23_04_60/packages/xdc/runtime/IInstance.h: 
 /media/software/CCS/bios_6_34_02_18/packages/ti/sysbios/interfaces/ITimer.h: 
 /media/software/CCS/bios_6_34_02_18/packages/ti/sysbios/hal/package/Timer_TimerProxy.h: 
+/media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/csl/csl_tmr.h: 
+/media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/csl/cslr_tmr.h: 
+/media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/csl/csl_tmrAux.h: 
+/media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/csl/src/intc/csl_intc.h: 
+/media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/csl/src/intc/cslr_intc.h: 
+/media/software/CCS/pdk_C6670_1_1_2_6/packages/ti/csl/src/intc/csl_intcAux.h: 

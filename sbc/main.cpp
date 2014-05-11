@@ -38,6 +38,7 @@ char* dataFileName;
 typedef struct _IMG_STORE_REQST_TYP {   /* Image Store Request Structure */
     int hydrophone;                 	/* Image Type */
     int number;                 	/* numbers of pages */
+    float fps;
 } IMG_STORE_REQST_TYP;
 
 /* init_socket
@@ -127,6 +128,7 @@ while(1)
             /////store files/////
             char filename[100];
             sprintf(filename,"%s_%d.txt",dataFileName,hyd);
+	    lprintf1(__FILE__,__FUNCTION__,__LINE__,DEBUG,"fps is %f",store_req.fps);
             writeOutput(filename,data,nbytes);
 		
 	   //system("rosservice call /auv_debug/hydrophone_interface/graph_plot \" {}\" ");

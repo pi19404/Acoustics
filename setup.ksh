@@ -13,4 +13,7 @@ chmod 777 mad_tools
 chown root mad_tools
 chgrp root mad_tools
 chmod u+s mad_tools
+cp tftp.conf  /etc/xinetd.d/tftp
+sudo /etc/init.d/xinetd restart
+
 

@@ -1,5 +1,14 @@
 #include "common.h"
 #include "/opt/ti/bios_6_34_02_18/packages/ti/sysbios/hal/Timer.h"
+#include "csl.h"
+#include "csl_tmr.h"
+//#include "csl_irq.h"
+
+#include <ti/csl/csl_tmr.h>
+#include <ti/csl/csl_tmrAux.h>
+#include <ti/csl/src/intc/csl_intc.h>
+#include <ti/csl/src/intc/csl_intcAux.h>
+
 
 /* Version String */
 char *VerStr = BLM_VERSION;
@@ -8,9 +17,9 @@ char *VerStr = BLM_VERSION;
 ** IP Stack - NDK Routines
 ***************************************************************************/
 
-void acquire_data();
+float acquire_data();
+extern Timer_Handle timer1;
 
-void dis_data();
 SOCKET   stcp = INVALID_SOCKET;
 
 
@@ -80,7 +89,7 @@ unsigned int tscl_val, tsch_val;
 long long elapsed_time;
 
 void compute_time_diff();
-void acquire_data();
+float acquire_data();
 
 
 #define LOG_COUNT 5
@@ -108,6 +117,7 @@ long long elapsed_time;
 typedef struct _IMG_STORE_REQST_TYP {   /* Image Store Request Structure */
     int hydrophone;                     /* Image Type */
     int number;                     /* numbers of pages */
+    float fps;
 } IMG_STORE_REQST_TYP;
 
 #define RECORD_SIZE (sizeof(tLogRecord) + ((NUM_LOG_ITEMS - 1) * 1))
@@ -133,7 +143,7 @@ int main()
 {
     /* Start the BIOS 6 Scheduler - it will kick off our main thread ledPlayTask() */
     platform_write("Start BIOS 6\n");
-
+    //Timer_start(timer1);
     BIOS_start();
 }
 
@@ -199,19 +209,27 @@ void EVM_init()
     }
 
     memset( (void *) &sPlatformInfo, 0, sizeof(platform_info));
+    memset( (void *) &gPlatformInfo, 0, sizeof(platform_info));
     platform_get_info(&sPlatformInfo);
-    memset( (void *) &sPlatformInfo, 0, sizeof(platform_info));
+
        //platform_get_info(&sPlatformInfo);
-       platform_get_info(&gPlatformInfo);
-    number_of_cores = sPlatformInfo.cpu.core_count;
-    platform_write(sPlatformInfo.board_name);
+    platform_get_info(&gPlatformInfo);
+    number_of_cores = gPlatformInfo.cpu.core_count;
+
+    //MultiProc_setLocalId((Uint16) platform_get_coreid());
     platform_uart_init();
     platform_uart_set_baudrate(115200);
-
     platform_write_configure (PLATFORM_WRITE_ALL);
+    platform_write("Board Name %s \n",sPlatformInfo.board_name);
     //write_uart("\r\n\r\nBooting Hello World image from NAND flash via IBL over I2C 0x51 ...");
 
     //MultiProc_setLocalId((Uint16) platform_get_coreid());
+    //CSL_init();
+    //Uint16 eventId0;
+    //IRQ_clear(eventId0);
+    //eventId0 = TIMER_getEventId(timer0Handle);
+    //IRQ_enable(eventId0);
+    //IRQ_globalEnable();
 
     return;
 }
@@ -246,9 +264,21 @@ uint32_t convert_CoreLocal2GlobalAddr (uint32_t addr) {
  * configuration file and it is called from BIOS.
  *
  ************************************************************************/
+int min(int a,int b)
+{
+if(a<b)
+	return a;
+else
+	return b;;
+
+}
+CSL_IntcObj                  tmrIntcObj;
+CSL_IntcContext              context;
+CSL_IntcEventHandlerRecord   EventHandler[30];
 
 void nullsrv()
 {
+
 
     SOCKET   stcpactive = INVALID_SOCKET;
     struct   sockaddr_in sin1;
@@ -260,7 +290,7 @@ void nullsrv()
 
     //gpioEnableGlobalInterrupt();
     // Allocate the file environment for this task
-    fdOpenSession( TaskSelf() );
+    fdOpenSession(TaskSelf());
 
 
     TaskSleep(15000);
@@ -271,11 +301,18 @@ void nullsrv()
     int k=0;
         int n=0;
        IMG_STORE_REQST_TYP a;
-            a.number=PULSE_SAMPLE*sizeof(int);
+
+
             int *data;
+            UInt32 time1,time2;
            for(;;)
            {
-                   acquire_data();
+        	   	   //time1=Clock_getTicks();
+        	   	   a.fps=acquire_data();
+        	   	   a.number=min((int)a.fps*sizeof(int),PULSE_SAMPLE*sizeof(int));
+        	   	   //time2=Clock_getTicks();
+        	   	   platform_write("time taken for acquire data is %lu \n",(unsigned long)(time2-time1));
+        	   	   //time1=Clock_getTicks();
                    for(k=0;k<2;k++)
                    {
                     if(k==0)
@@ -283,7 +320,7 @@ void nullsrv()
                     else
                     data=&data_bufferB[0];
                    //WWdis_data();
-                        stcp = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+                       stcp = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
                        if( stcp == INVALID_SOCKET )
                        {
                            int ret=fdError();
@@ -408,12 +445,9 @@ void nullsrv()
 						      shutdown(stcp,0);
 						      fdClose(stcp);
                    }
-
-
-               //TaskSleep(5);
-
-
-
+                   //time2=Clock_getTicks();
+                   platform_write("time taken for  data transfer is  %lu \n",(unsigned long)(time2-time1));
+               //TaskSleep(5);fe
     }
 
 leave:
@@ -715,7 +749,9 @@ volatile int timer_flag=0;
 void ADCInterrupt(UArg arg)
 {
 
+	platform_write("received interrupt");
 	timer_flag=1;
+	return;
 }
 
 void hwiGPIOnFunc(UArg arg)
@@ -734,20 +770,27 @@ void hwiGPIOnFunc(UArg arg)
 
 
 
-extern Timer_Handle timer1;
 
-void acquire_data()
+
+float acquire_data()
 {
 	//GPIO_3-CNVST,  GPIO_13-CS
 	//Start the ADC communication
 	timer_flag=0;
 	Timer_start(timer1);
+	platform_write("stated timer \n");
 	data_index=0;
 	int cnt=0;
 	for(;;)
 	{
+		//
 		if(timer_flag==1)
+		{
+			platform_write("processing sample %d \n",cnt);
+			timer_flag=0;
 			break;
+		}
+
 		//Pull CNVST low
 		//platform_write("eeee");
 		gpioClearOutput(GPIO_3);
@@ -804,9 +847,12 @@ void acquire_data()
 		cnt++;
 		data_index=data_index+1;
 		data_index=data_index%PULSE_SAMPLE;
-	}
-	platform_write("Total number of samples are %d",cnt);
+	//	if(data_index==0)
+		//	break;
 
+	}
+	platform_write("Total number of samples are %d \n",cnt);
+	return cnt;
 }
 
 
